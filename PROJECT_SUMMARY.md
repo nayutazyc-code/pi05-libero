@@ -255,4 +255,4 @@
 
 ## 最终检查点归档
 
-A/B/C 的最终 29999 与 PnP G0/G1 的最终 2499 已归档至 [ckpt-v1 Release](https://github.com/nayutazyc01-ui/pi05-libero/releases/tag/ckpt-v1)。G2 共用 G0 权重。每组包含完整 `params` 和 `assets/norm_stats`，不含优化器 `train_state`，用于推理和评测，不是完整断点续训备份。下载、分卷重组、SHA-256 校验与 openpi 加载步骤见 [CKPT.md](CKPT.md)。
+A/B/C 的最终 29999 与 PnP G0/G1 的最终 2499 已归档至 [ckpt-v1 Release](https://github.com/nayutazyc-code/pi05-libero/releases/tag/ckpt-v1)。G2 共用 G0 权重。每组包含完整 `params` 和 `assets/norm_stats`，不含优化器 `train_state`，用于推理和评测，不是完整断点续训备份。下载、分卷重组、SHA-256 校验与 openpi 加载步骤见 [CKPT.md](CKPT.md)。

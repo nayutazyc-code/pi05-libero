@@ -20,12 +20,12 @@
 
 ## 下载与校验
 
-发布页：<https://github.com/nayutazyc01-ui/pi05-libero/releases/tag/data-v1>
+发布页：<https://github.com/nayutazyc-code/pi05-libero/releases/tag/data-v1>
 
 发布后运行：
 
 ```bash
-gh release download data-v1 --repo nayutazyc01-ui/pi05-libero --dir pi05-data
+gh release download data-v1 --repo nayutazyc-code/pi05-libero --dir pi05-data
 cd pi05-data
 sha256sum -c SHA256SUMS
 mkdir -p raw lerobot

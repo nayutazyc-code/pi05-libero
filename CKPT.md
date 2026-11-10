@@ -1,6 +1,6 @@
 # pi0.5 最终检查点备份
 
-下载：[GitHub Release ckpt-v1](https://github.com/nayutazyc01-ui/pi05-libero/releases/tag/ckpt-v1)。
+下载：[GitHub Release ckpt-v1](https://github.com/nayutazyc-code/pi05-libero/releases/tag/ckpt-v1)。
 
 训练机停机仅保留 15 天，因此将本项目五个最终检查点独立备份到 Release；不依赖训练机继续存在。G2 与 G0 共用权重，没有独立检查点。
 
@@ -24,11 +24,11 @@
 
 ## 下载、校验、重组
 
-安装 GitHub CLI、GNU tar、zstd。仓库私有时，先用自己的 GitHub 账号登录 `gh`。
+安装 GitHub CLI、GNU tar 和 zstd。首次使用 GitHub CLI 时，可运行 `gh auth login` 登录。也可以直接从上方发布页下载分卷和 `SHA256SUMS`。
 
 ```bash
 mkdir -p pi05-ckpt-download && cd pi05-ckpt-download
-gh release download ckpt-v1 --repo nayutazyc01-ui/pi05-libero --pattern '*.part*' --pattern SHA256SUMS
+gh release download ckpt-v1 --repo nayutazyc-code/pi05-libero --pattern '*.part*' --pattern SHA256SUMS
 sha256sum -c SHA256SUMS
 mkdir -p restored
 for name in A29999 B29999 C29999 G0-2499 G1-2499; do
@@ -39,7 +39,7 @@ done
 只下载一组，例如 G0：
 
 ```bash
-gh release download ckpt-v1 --repo nayutazyc01-ui/pi05-libero --pattern 'G0-2499.tar.zst.part*' --pattern SHA256SUMS
+gh release download ckpt-v1 --repo nayutazyc-code/pi05-libero --pattern 'G0-2499.tar.zst.part*' --pattern SHA256SUMS
 # 仅验证已下载的 G0 卷；全量下载则使用上一节的完整校验。
 grep '  G0-2499.tar.zst.part' SHA256SUMS | sha256sum -c -
 mkdir -p restored
