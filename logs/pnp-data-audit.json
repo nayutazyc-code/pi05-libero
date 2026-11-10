@@ -1,0 +1,731 @@
+{
+  "pnp_policy_spatial_center": {
+    "episodes": 30,
+    "frames": 3327,
+    "checks": "finite; action N*7; state N*8; both cameras N*256*256*3 uint8; no uniform frames; quaternion norm=1; success metadata; consistent lengths",
+    "action_min": [
+      -0.5679416656494141,
+      -0.41302162408828735,
+      -1.0636197328567505,
+      -0.13562273979187012,
+      -0.2810431718826294,
+      -0.1779593527317047,
+      -1.0316510200500488
+    ],
+    "action_max": [
+      0.9716506600379944,
+      0.7244936227798462,
+      0.9508975148200989,
+      0.12144433706998825,
+      0.15221063792705536,
+      0.07904428243637085,
+      1.020707130432129
+    ],
+    "frames_per_episode": [
+      {
+        "episode": "episode_0000",
+        "frames": 98,
+        "collection_attempt": 2
+      },
+      {
+        "episode": "episode_0001",
+        "frames": 96,
+        "collection_attempt": 3
+      },
+      {
+        "episode": "episode_0002",
+        "frames": 102,
+        "collection_attempt": 4
+      },
+      {
+        "episode": "episode_0003",
+        "frames": 104,
+        "collection_attempt": 5
+      },
+      {
+        "episode": "episode_0004",
+        "frames": 112,
+        "collection_attempt": 6
+      },
+      {
+        "episode": "episode_0005",
+        "frames": 108,
+        "collection_attempt": 7
+      },
+      {
+        "episode": "episode_0006",
+        "frames": 102,
+        "collection_attempt": 8
+      },
+      {
+        "episode": "episode_0007",
+        "frames": 104,
+        "collection_attempt": 9
+      },
+      {
+        "episode": "episode_0008",
+        "frames": 119,
+        "collection_attempt": 10
+      },
+      {
+        "episode": "episode_0009",
+        "frames": 216,
+        "collection_attempt": 11
+      },
+      {
+        "episode": "episode_0010",
+        "frames": 98,
+        "collection_attempt": 12
+      },
+      {
+        "episode": "episode_0011",
+        "frames": 104,
+        "collection_attempt": 13
+      },
+      {
+        "episode": "episode_0012",
+        "frames": 102,
+        "collection_attempt": 14
+      },
+      {
+        "episode": "episode_0013",
+        "frames": 99,
+        "collection_attempt": 15
+      },
+      {
+        "episode": "episode_0014",
+        "frames": 92,
+        "collection_attempt": 16
+      },
+      {
+        "episode": "episode_0015",
+        "frames": 102,
+        "collection_attempt": 17
+      },
+      {
+        "episode": "episode_0016",
+        "frames": 194,
+        "collection_attempt": 18
+      },
+      {
+        "episode": "episode_0017",
+        "frames": 107,
+        "collection_attempt": 19
+      },
+      {
+        "episode": "episode_0018",
+        "frames": 91,
+        "collection_attempt": 20
+      },
+      {
+        "episode": "episode_0019",
+        "frames": 115,
+        "collection_attempt": 21
+      },
+      {
+        "episode": "episode_0020",
+        "frames": 97,
+        "collection_attempt": 22
+      },
+      {
+        "episode": "episode_0021",
+        "frames": 96,
+        "collection_attempt": 23
+      },
+      {
+        "episode": "episode_0022",
+        "frames": 108,
+        "collection_attempt": 24
+      },
+      {
+        "episode": "episode_0023",
+        "frames": 109,
+        "collection_attempt": 25
+      },
+      {
+        "episode": "episode_0024",
+        "frames": 153,
+        "collection_attempt": 26
+      },
+      {
+        "episode": "episode_0025",
+        "frames": 101,
+        "collection_attempt": 27
+      },
+      {
+        "episode": "episode_0026",
+        "frames": 93,
+        "collection_attempt": 28
+      },
+      {
+        "episode": "episode_0027",
+        "frames": 105,
+        "collection_attempt": 29
+      },
+      {
+        "episode": "episode_0028",
+        "frames": 98,
+        "collection_attempt": 30
+      },
+      {
+        "episode": "episode_0029",
+        "frames": 102,
+        "collection_attempt": 31
+      }
+    ]
+  },
+  "pnp_policy_spatial_center_clean": {
+    "episodes": 30,
+    "frames": 3327,
+    "checks": "finite; action N*7; state N*8; both cameras N*256*256*3 uint8; no uniform frames; quaternion norm=1; success metadata; consistent lengths",
+    "action_min": [
+      -0.5679416656494141,
+      -0.41302162408828735,
+      -1.0636197328567505,
+      -0.13562273979187012,
+      -0.2810431718826294,
+      -0.1779593527317047,
+      -1.0316510200500488
+    ],
+    "action_max": [
+      0.9716506600379944,
+      0.7244936227798462,
+      0.9508975148200989,
+      0.12144433706998825,
+      0.15221063792705536,
+      0.07904428243637085,
+      1.020707130432129
+    ],
+    "frames_per_episode": [
+      {
+        "episode": "episode_0000",
+        "frames": 98,
+        "collection_attempt": 2
+      },
+      {
+        "episode": "episode_0001",
+        "frames": 96,
+        "collection_attempt": 3
+      },
+      {
+        "episode": "episode_0002",
+        "frames": 102,
+        "collection_attempt": 4
+      },
+      {
+        "episode": "episode_0003",
+        "frames": 104,
+        "collection_attempt": 5
+      },
+      {
+        "episode": "episode_0004",
+        "frames": 112,
+        "collection_attempt": 6
+      },
+      {
+        "episode": "episode_0005",
+        "frames": 108,
+        "collection_attempt": 7
+      },
+      {
+        "episode": "episode_0006",
+        "frames": 102,
+        "collection_attempt": 8
+      },
+      {
+        "episode": "episode_0007",
+        "frames": 104,
+        "collection_attempt": 9
+      },
+      {
+        "episode": "episode_0008",
+        "frames": 119,
+        "collection_attempt": 10
+      },
+      {
+        "episode": "episode_0009",
+        "frames": 216,
+        "collection_attempt": 11
+      },
+      {
+        "episode": "episode_0010",
+        "frames": 98,
+        "collection_attempt": 12
+      },
+      {
+        "episode": "episode_0011",
+        "frames": 104,
+        "collection_attempt": 13
+      },
+      {
+        "episode": "episode_0012",
+        "frames": 102,
+        "collection_attempt": 14
+      },
+      {
+        "episode": "episode_0013",
+        "frames": 99,
+        "collection_attempt": 15
+      },
+      {
+        "episode": "episode_0014",
+        "frames": 92,
+        "collection_attempt": 16
+      },
+      {
+        "episode": "episode_0015",
+        "frames": 102,
+        "collection_attempt": 17
+      },
+      {
+        "episode": "episode_0016",
+        "frames": 194,
+        "collection_attempt": 18
+      },
+      {
+        "episode": "episode_0017",
+        "frames": 107,
+        "collection_attempt": 19
+      },
+      {
+        "episode": "episode_0018",
+        "frames": 91,
+        "collection_attempt": 20
+      },
+      {
+        "episode": "episode_0019",
+        "frames": 115,
+        "collection_attempt": 21
+      },
+      {
+        "episode": "episode_0020",
+        "frames": 97,
+        "collection_attempt": 22
+      },
+      {
+        "episode": "episode_0021",
+        "frames": 96,
+        "collection_attempt": 23
+      },
+      {
+        "episode": "episode_0022",
+        "frames": 108,
+        "collection_attempt": 24
+      },
+      {
+        "episode": "episode_0023",
+        "frames": 109,
+        "collection_attempt": 25
+      },
+      {
+        "episode": "episode_0024",
+        "frames": 153,
+        "collection_attempt": 26
+      },
+      {
+        "episode": "episode_0025",
+        "frames": 101,
+        "collection_attempt": 27
+      },
+      {
+        "episode": "episode_0026",
+        "frames": 93,
+        "collection_attempt": 28
+      },
+      {
+        "episode": "episode_0027",
+        "frames": 105,
+        "collection_attempt": 29
+      },
+      {
+        "episode": "episode_0028",
+        "frames": 98,
+        "collection_attempt": 30
+      },
+      {
+        "episode": "episode_0029",
+        "frames": 102,
+        "collection_attempt": 31
+      }
+    ]
+  },
+  "collection_summary": {
+    "successes": 30,
+    "failures": 1,
+    "attempts": 31,
+    "episodes": [
+      {
+        "attempt": 1,
+        "success": false,
+        "steps": 220,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 2,
+        "success": true,
+        "steps": 98,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 3,
+        "success": true,
+        "steps": 96,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 4,
+        "success": true,
+        "steps": 102,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 5,
+        "success": true,
+        "steps": 104,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 6,
+        "success": true,
+        "steps": 112,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 7,
+        "success": true,
+        "steps": 108,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 8,
+        "success": true,
+        "steps": 102,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 9,
+        "success": true,
+        "steps": 104,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 10,
+        "success": true,
+        "steps": 119,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 11,
+        "success": true,
+        "steps": 216,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 12,
+        "success": true,
+        "steps": 98,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 13,
+        "success": true,
+        "steps": 104,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 14,
+        "success": true,
+        "steps": 102,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 15,
+        "success": true,
+        "steps": 99,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 16,
+        "success": true,
+        "steps": 92,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 17,
+        "success": true,
+        "steps": 102,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 18,
+        "success": true,
+        "steps": 194,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 19,
+        "success": true,
+        "steps": 107,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 20,
+        "success": true,
+        "steps": 91,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 21,
+        "success": true,
+        "steps": 115,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 22,
+        "success": true,
+        "steps": 97,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 23,
+        "success": true,
+        "steps": 96,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 24,
+        "success": true,
+        "steps": 108,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 25,
+        "success": true,
+        "steps": 109,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 26,
+        "success": true,
+        "steps": 153,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 27,
+        "success": true,
+        "steps": 101,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 28,
+        "success": true,
+        "steps": 93,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 29,
+        "success": true,
+        "steps": 105,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 30,
+        "success": true,
+        "steps": 98,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      },
+      {
+        "attempt": 31,
+        "success": true,
+        "steps": 102,
+        "task": "pick up the black bowl from table center and place it on the plate",
+        "task_id": 2,
+        "suite": "libero_spatial",
+        "fps": 10,
+        "dataset_ref": "lerobot/libero_spatial_image",
+        "expert": "pi05_libero_lora/phase1_lora_baseline/29999",
+        "replan_steps": 5
+      }
+    ]
+  }
+}

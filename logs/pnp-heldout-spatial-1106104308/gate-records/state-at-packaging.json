@@ -1,0 +1,32 @@
+{
+  "id": "pi05-pnp-heldout-spatial-1106104308",
+  "name": "pi05-pnp-heldout-spatial",
+  "workdir": "/example/project",
+  "reviews_used": 4,
+  "max_reviews": 6,
+  "phase": "executing",
+  "gates": [
+    {
+      "type": "planning",
+      "ts": "2026-11-06T10:45:20+0800",
+      "record": "gates/20261106-104520-planning.md"
+    },
+    {
+      "type": "planning",
+      "ts": "2026-11-06T10:46:41+0800",
+      "record": "gates/20261106-104641-planning.md"
+    },
+    {
+      "type": "error",
+      "ts": "2026-11-06T10:59:58+0800",
+      "record": "gates/20261106-105958-error.md"
+    },
+    {
+      "type": "error",
+      "ts": "2026-11-06T17:10:41+0800",
+      "record": "gates/20261106-171041-error.md"
+    }
+  ],
+  "next_role": "executor",
+  "created": "2026-11-06T10:43:08+0800"
+}

@@ -1,0 +1,8 @@
+{
+  "episodes": 30,
+  "frames": 3327,
+  "all_state_action_rows_match_clean": true,
+  "both_images_first_last_per_episode_match_rotated_clean": true,
+  "checkpoint_norm_stats_match": true,
+  "norm_stats_sha256": "7c9ed137ed61140619cd0f839993711251d9fb117f064ee7a0c2f5e854f03f6a"
+}

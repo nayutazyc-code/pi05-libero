@@ -1,0 +1,1016 @@
+diff --git a/scripts/remote/eval_libero_task.py b/scripts/remote/eval_libero_task.py
+index e549973..4dd1fab 100755
+--- a/scripts/remote/eval_libero_task.py
++++ b/scripts/remote/eval_libero_task.py
+@@ -32,6 +32,10 @@ class Args:
+     tag: str = "eval"
+     checkpoint_path: str = ""
+     policy_config: str = ""
++    init_manifest: str = ""
++    protocol_file: str = ""
++    results_path: str = ""
++    preflight_trials: int = 0
+ 
+ 
+ def proprio8(obs):
+@@ -44,6 +48,9 @@ def proprio8(obs):
+ 
+ 
+ def main(args: Args):
++    if args.init_manifest:
++        from pnp_heldout_eval import evaluate
++        return evaluate(args)
+     np.random.seed(args.seed)
+     out = pathlib.Path(args.video_out_path)
+     out.mkdir(parents=True, exist_ok=True)
+diff --git a/scripts/remote/build_pnp_heldout.py b/scripts/remote/build_pnp_heldout.py
+new file mode 100644
+index 0000000..1ce6eb3
+--- /dev/null
++++ b/scripts/remote/build_pnp_heldout.py
+@@ -0,0 +1,166 @@
++#!/usr/bin/env python3
++"""Freeze policy-independent spatial initial states before any scored rollout."""
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++import os
++import pathlib
++import signal
++
++import numpy as np
++from libero.libero import benchmark, get_libero_path
++from libero.libero.envs import OffScreenRenderEnv
++
++
++RULES = {
++    "suite": "libero_spatial", "seed": 7, "trials_per_task": 50,
++    "excluded_task": 2, "excluded_indices": list(range(31)),
++    "scope": "held-out only against this PnP policy-expert collection",
++    "selection": "existing states in index order, then native scene reset() stream",
++    "generation_seed": 7, "generation_candidate_limit_per_task": 1000,
++    "generation": "one seed per task, never reseed the candidate stream; no pose perturbation",
++    "identity": "SHA256 little-endian float64 state[1:] rounded to 12 decimals; omit simulator time",
++    "validation": {
++        "wait_steps": 10, "dummy_action": [0.0] * 6 + [-1.0],
++        "finite_state_and_observations": True, "success_before_or_during_wait": False,
++        "last_step_max_qpos_delta": 0.02, "final_max_abs_qvel": 5.0,
++        "reset_deadline_seconds": 120,
++    },
++    "camera_names": ["agentview", "robot0_eye_in_hand"], "camera_resolution": 256,
++}
++
++
++def file_hash(path):
++    return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
++
++
++def state_hash(state):
++    # Time alone must not make a repeated physical state appear held-out.
++    state = np.round(np.asarray(state, dtype="<f8")[1:], 12)
++    state[state == 0] = 0  # canonicalize negative zero
++    return hashlib.sha256(state.tobytes()).hexdigest()
++
++
++def save_exclusive(path, value):
++    with pathlib.Path(path).open("x") as f:
++        json.dump(value, f, indent=2, allow_nan=False)
++        f.write("\n")
++        f.flush()
++        os.fsync(f.fileno())
++
++
++def deadline(signum, frame):
++    raise TimeoutError("native scene reset exceeded fixed 120s deadline")
++
++
++def validate(env, state):
++    if not np.isfinite(state).all():
++        return {"valid": False, "reason": "nonfinite_initial_state"}
++    obs = env.set_init_state(state)
++    if env.check_success():
++        return {"valid": False, "reason": "already_successful"}
++    delta = 0.0
++    for _ in range(10):
++        previous = env.sim.data.qpos.copy()
++        obs, _, done, _ = env.step(RULES["validation"]["dummy_action"])
++        delta = float(np.max(np.abs(env.sim.data.qpos - previous)))
++        if done or env.check_success():
++            return {"valid": False, "reason": "success_or_done_during_wait"}
++    velocity = float(np.max(np.abs(env.sim.data.qvel)))
++    finite = all(np.isfinite(obs[k]).all() for k in (
++        "agentview_image", "robot0_eye_in_hand_image", "robot0_eef_pos",
++        "robot0_eef_quat", "robot0_gripper_qpos",
++    )) and np.isfinite(env.get_sim_state()).all()
++    valid = bool(finite and delta <= 0.02 and velocity <= 5.0)
++    return {"valid": valid, "reason": "ok" if valid else "unstable_or_nonfinite",
++            "last_qpos_delta": delta, "max_abs_qvel": velocity}
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--out", required=True)
++    parser.add_argument("--collection-summary", required=True)
++    args = parser.parse_args()
++    out = pathlib.Path(args.out)
++    out.mkdir(parents=True, exist_ok=True)
++    # Written exclusively before generation or simulation validation, never overwritten.
++    save_exclusive(out / "selection_rules.json", RULES)
++    summary = json.loads(pathlib.Path(args.collection_summary).read_text())
++    assert summary["attempts"] == 31 and len(summary["episodes"]) == 31
++    assert [e["attempt"] for e in summary["episodes"]] == list(range(1, 32))
++    assert all(e["task_id"] == 2 and e["suite"] == "libero_spatial" for e in summary["episodes"])
++    suite = benchmark.get_benchmark_dict()["libero_spatial"]()
++    excluded = {state_hash(x) for x in suite.get_task_init_states(2)[:31]}
++    assert len(excluded) == 31
++    manifest = {"schema": 1, "rules_sha256": file_hash(out / "selection_rules.json"),
++                "collection_summary_sha256": file_hash(args.collection_summary),
++                "collector_sha256": file_hash(pathlib.Path(__file__).with_name("collect_pnp_policy_expert.py")),
++                "excluded_state_hashes": sorted(excluded), "tasks": []}
++    signal.signal(signal.SIGALRM, deadline)
++    for task_id in range(10):
++        task = suite.get_task(task_id)
++        source = pathlib.Path(get_libero_path("init_states")) / task.problem_folder / task.init_states_file
++        bddl = pathlib.Path(suite.get_task_bddl_file_path(task_id))
++        np.random.seed(7)
++        env = OffScreenRenderEnv(bddl_file_name=str(bddl), camera_heights=256, camera_widths=256)
++        env.seed(7)
++        chosen, audit, seen = [], [], set()
++        try:
++            existing = suite.get_task_init_states(task_id)
++            for index, candidate in enumerate(existing):
++                candidate = np.asarray(candidate, dtype=np.float64).copy()
++                identity = state_hash(candidate)
++                entry = {"source": "existing", "source_index": index, "state_hash": identity}
++                if identity in excluded or identity in seen:
++                    audit.append(dict(entry, valid=False, reason="collection_overlap_or_duplicate"))
++                    continue
++                metrics = validate(env, candidate)
++                audit.append(dict(entry, **metrics))
++                if metrics["valid"]:
++                    chosen.append(dict(entry, state=candidate.tolist(), validation=metrics))
++                    seen.add(identity)
++                if len(chosen) == 50:
++                    break
++            # Reset RNG only once, before the fixed candidate stream starts.
++            np.random.seed(7)
++            env.seed(7)
++            for index in range(1000):
++                if len(chosen) == 50:
++                    break
++                signal.alarm(120)
++                try:
++                    env.reset()
++                finally:
++                    signal.alarm(0)
++                candidate = np.asarray(env.get_sim_state(), dtype=np.float64).copy()
++                identity = state_hash(candidate)
++                entry = {"source": "native_reset", "source_index": index, "state_hash": identity}
++                if identity in excluded or identity in seen:
++                    audit.append(dict(entry, valid=False, reason="collection_overlap_or_duplicate"))
++                    continue
++                metrics = validate(env, candidate)
++                audit.append(dict(entry, **metrics))
++                if metrics["valid"]:
++                    chosen.append(dict(entry, state=candidate.tolist(), validation=metrics))
++                    seen.add(identity)
++            save_exclusive(out / f"task{task_id}_selection_audit.json", audit)
++            if len(chosen) != 50:
++                raise RuntimeError(f"ERROR_GATE task{task_id}: only {len(chosen)} legal held-out states")
++            for order, entry in enumerate(chosen):
++                entry["trial_index"] = order
++                entry["seed"] = 7
++            manifest["tasks"].append({"task_id": task_id, "language": task.language,
++                "init_file": str(source), "init_file_sha256": file_hash(source),
++                "bddl_sha256": file_hash(bddl), "states": chosen})
++            print(f"HELDOUT_TASK {task_id} existing={sum(x['source'] == 'existing' for x in chosen)} generated={sum(x['source'] == 'native_reset' for x in chosen)}", flush=True)
++        finally:
++            env.close()
++    save_exclusive(out / "manifest.json", manifest)
++    save_exclusive(out / "manifest.sha256.json", {"sha256": file_hash(out / "manifest.json")})
++    print("HELDOUT_FROZEN", file_hash(out / "manifest.json"), flush=True)
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/remote/freeze_pnp_heldout.py b/scripts/remote/freeze_pnp_heldout.py
+new file mode 100644
+index 0000000..307dd28
+--- /dev/null
++++ b/scripts/remote/freeze_pnp_heldout.py
+@@ -0,0 +1,108 @@
++#!/usr/bin/env python3
++"""Bind the manifest, exact checkpoint leaves, normalizers and source files."""
++import argparse
++import hashlib
++import json
++import pathlib
++
++
++W = pathlib.Path("/root/autodl-tmp")
++SCRIPTS = ["eval_libero_task.py", "pnp_heldout_eval.py", "build_pnp_heldout.py",
++           "serve_pnp_heldout.py", "freeze_pnp_heldout.py", "summarize_pnp_heldout.py",
++           "103-pnp-heldout-spatial.sh"]
++
++
++def sha(path):
++    digest = hashlib.sha256()
++    with pathlib.Path(path).open("rb") as f:
++        for block in iter(lambda: f.read(4 * 1024 * 1024), b""):
++            digest.update(block)
++    return digest.hexdigest()
++
++
++def snapshot(root):
++    root = pathlib.Path(root)
++    files = sorted(p for p in root.rglob("*") if p.is_file())
++    assert files, f"missing assets: {root}"
++    return [{"path": str(p), "bytes": p.stat().st_size, "sha256": sha(p)} for p in files]
++
++
++def check(protocol):
++    assert sha(protocol["manifest"]) == protocol["manifest_sha256"]
++    for name, digest in protocol["eval_scripts_sha256"].items():
++        assert sha(W / "scripts" / name) == digest, name
++    for entry in protocol["source_files"]:
++        assert sha(entry["path"]) == entry["sha256"], entry["path"]
++    checked = set()
++    for group in protocol["groups"].values():
++        for entry in group["params"] + group["normalization"]:
++            if entry["path"] not in checked:
++                assert sha(entry["path"]) == entry["sha256"], entry["path"]
++                checked.add(entry["path"])
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--manifest")
++    parser.add_argument("--out", required=True)
++    parser.add_argument("--verify", action="store_true")
++    args = parser.parse_args()
++    out = pathlib.Path(args.out)
++    if args.verify:
++        check(json.loads(out.read_text()))
++        print("PROTOCOL_VERIFIED", sha(out), flush=True)
++        return
++    assert not out.exists(), "frozen protocol must never be overwritten"
++    manifest = pathlib.Path(args.manifest).resolve()
++    data = json.loads(manifest.read_text())
++    assert len(data["tasks"]) == 10
++    roots = {
++        "A29999": ("pi05_libero_lora", "phase1_lora_baseline/29999"),
++        "G0": ("pi05_libero_lora_pnp", "pnp_g0_accum_bs32_mb8/2499"),
++        "G1": ("pi05_libero_lora_pnp", "pnp_g1_bs16/2499"),
++    }
++    groups = {}
++    for tag, (cfg, leaf) in roots.items():
++        ckpt = W / "openpi/checkpoints" / cfg / leaf
++        groups[tag] = {"checkpoint": str(ckpt), "config": cfg, "replan": 5,
++                       "params": snapshot(ckpt / "params"),
++                       "normalization": snapshot(ckpt / "assets")}
++        assert any(pathlib.Path(x["path"]).name == "norm_stats.json" for x in groups[tag]["normalization"])
++        print("CHECKPOINT_HASHED", tag, flush=True)
++    groups["G2"] = dict(groups["G0"], replan=10)
++    sources = [W / "openpi" / x for x in (
++        "src/openpi/training/config.py", "src/openpi/policies/policy.py",
++        "src/openpi/policies/policy_config.py", "src/openpi/models/pi0.py",
++        "src/openpi/policies/libero_policy.py", "examples/libero/main.py",
++        "third_party/libero/libero/libero/envs/env_wrapper.py",
++    )]
++    protocol = {
++        "schema": 1, "manifest": str(manifest), "manifest_sha256": sha(manifest),
++        "groups": groups, "group_order": ["A29999", "G0", "G1", "G2"],
++        "task_order": list(range(10)), "seed": 7, "task_suite_name": "libero_spatial",
++        "trials_per_task": 50, "max_steps": 220, "num_steps_wait": 10,
++        "resize_size": 224, "render_resolution": 256, "action_horizon": 10,
++        "state_contract": "eef_pos(3)+eef_quat_xyzw(4)+gripper_qpos[0](1)",
++        "rng": "each request sets jax.random.key(uint32 little-endian SHA256('7:task_id:state_hash:control_step')[:4]); identical across groups/retries",
++        "success": "env.check_success() after every control step",
++        "timeout": "220 control steps exhausted => task failure; service/walltime exceptions => unscored execution error",
++        "trial_wall_deadline_seconds": 600,
++        "retries": "no automatic retries; error gate before same-identity retry; completed results immutable",
++        "generated_states_disclosure": {str(t["task_id"]): sum(s["source"] == "native_reset" for s in t["states"]) for t in data["tasks"]},
++        "eval_scripts_sha256": {name: sha(W / "scripts" / name) for name in SCRIPTS},
++        "source_files": [{"path": str(p), "sha256": sha(p)} for p in sources],
++        "official_config_evidence": "logs/pnp-config-evidence.txt (installed source snapshot); G0 internal control with some official hyperparameters, not official benchmark",
++        "limitations": ["held-out only relative to the 31 PnP collection attempts",
++                        "nonofficial 3+4+1 state contract retained by prior gate approval",
++                        "G0/G1 training sample exposure and RNG paths differ",
++                        "A differs in fine-tuning data and normalization",
++                        "G2 synchronous replan only, no asynchronous RTC"],
++    }
++    with out.open("x") as f:
++        json.dump(protocol, f, indent=2)
++        f.write("\n")
++    print("PROTOCOL_FROZEN", sha(out), flush=True)
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/remote/pnp_heldout_eval.py b/scripts/remote/pnp_heldout_eval.py
+new file mode 100644
+index 0000000..221df91
+--- /dev/null
++++ b/scripts/remote/pnp_heldout_eval.py
+@@ -0,0 +1,223 @@
++"""Manifest-only evaluation with durable trial attempts and strict resume checks."""
++from __future__ import annotations
++
++import collections
++import fcntl
++import hashlib
++import json
++import logging
++import os
++import pathlib
++import signal
++import time
++import traceback
++
++import imageio
++import numpy as np
++from libero.libero import benchmark
++from libero.libero.envs import OffScreenRenderEnv
++from openpi_client import image_tools
++from openpi_client import websocket_client_policy as _ws
++
++from build_pnp_heldout import file_hash, state_hash
++from eval_libero_task import LIBERO_DUMMY_ACTION, proprio8
++
++
++def durable_write(path, record):
++    # One JSON file per event; rename commits complete records atomically.
++    path = pathlib.Path(path)
++    if path.exists():
++        raise ValueError(f"refusing to replace trial event {path}")
++    tmp = path.with_suffix(".tmp")
++    with tmp.open("w") as f:
++        json.dump(record, f, indent=2, allow_nan=False)
++        f.write("\n")
++        f.flush()
++        os.fsync(f.fileno())
++    os.replace(str(tmp), str(path))
++    fd = os.open(str(path.parent), os.O_RDONLY)
++    try:
++        os.fsync(fd)
++    finally:
++        os.close(fd)
++
++
++def read_events(root):
++    return [json.loads(p.read_text()) for p in sorted(pathlib.Path(root).glob("*.json"))]
++
++
++def trial_seed(task_id, identity, step):
++    text = f"7:{task_id}:{identity}:{step}"
++    return int.from_bytes(hashlib.sha256(text.encode()).digest()[:4], "little")
++
++
++def trial_deadline(signum, frame):
++    raise TimeoutError("trial execution exceeded fixed 600s wall deadline (unscored execution error)")
++
++
++def verify_manifest(manifest):
++    assert [t["task_id"] for t in manifest["tasks"]] == list(range(10))
++    excluded = set(manifest["excluded_state_hashes"])
++    assert len(excluded) == 31
++    for task in manifest["tasks"]:
++        states = task["states"]
++        assert len(states) == 50
++        identities = [state_hash(x["state"]) for x in states]
++        assert len(set(identities)) == 50 and not (set(identities) & excluded)
++        assert identities == [x["state_hash"] for x in states]
++        assert [x["trial_index"] for x in states] == list(range(50))
++
++
++def evaluate(args):
++    if not args.protocol_file or not args.results_path:
++        raise ValueError("held-out evaluation requires protocol-file and results-path")
++    protocol = json.loads(pathlib.Path(args.protocol_file).read_text())
++    protocol_hash = file_hash(args.protocol_file)
++    assert file_hash(args.init_manifest) == protocol["manifest_sha256"]
++    for name, expected in protocol["eval_scripts_sha256"].items():
++        assert file_hash(pathlib.Path(__file__).with_name(name)) == expected, name
++    manifest = json.loads(pathlib.Path(args.init_manifest).read_text())
++    verify_manifest(manifest)
++    group = protocol["groups"][args.tag]
++    assert args.checkpoint_path == group["checkpoint"] and args.policy_config == group["config"]
++    for key in ("seed", "max_steps", "num_steps_wait", "resize_size", "task_suite_name"):
++        assert getattr(args, key) == protocol[key], key
++    assert args.replan_steps == group["replan"] and 0 <= args.task_id < 10
++    assert args.num_trials == 50
++    assert 0 <= args.preflight_trials <= 3
++    stage = "preflight" if args.preflight_trials else "formal"
++    if args.preflight_trials:
++        assert pathlib.Path(args.results_path).name == "preflight-trials"
++    task_entry = manifest["tasks"][args.task_id]
++    suite = benchmark.get_benchmark_dict()[args.task_suite_name]()
++    task = suite.get_task(args.task_id)
++    assert task.language == task_entry["language"]
++    bddl = suite.get_task_bddl_file_path(args.task_id)
++    assert file_hash(bddl) == task_entry["bddl_sha256"]
++    root = pathlib.Path(args.results_path) / args.tag / f"task{args.task_id}"
++    root.mkdir(parents=True, exist_ok=True)
++    lock = (root / ".lock").open("w")
++    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
++    videos = pathlib.Path(args.video_out_path)
++    videos.mkdir(parents=True, exist_ok=True)
++    try:
++        events = read_events(root)
++        assert all(e["protocol_sha256"] == protocol_hash for e in events), "resume protocol mismatch"
++        assert all(e["stage"] == stage for e in events), "resume stage mismatch"
++        finished = {}
++        for e in events:
++            if e["event"] == "result":
++                assert e["trial_index"] not in finished, "duplicate scored trial"
++                finished[e["trial_index"]] = e
++    except BaseException:
++        lock.close()
++        raise
++    env = None
++    client = None
++    signal.signal(signal.SIGALRM, trial_deadline)
++    try:
++        if args.preflight_trials and args.task_id == 2:
++            selected = [task_entry["states"][i] for i in (0, 19, 49)[:args.preflight_trials]]
++        else:
++            selected = task_entry["states"][:args.preflight_trials] if args.preflight_trials else task_entry["states"]
++        for entry in selected:
++            ep = entry["trial_index"]
++            if ep in finished:
++                continue
++            past = [e for e in events if e["trial_index"] == ep and e["event"] == "start"]
++            attempt = len(past) + 1
++            # Incomplete previous starts remain visible as interrupted attempts.
++            identity = f"{args.tag}:libero_spatial:{args.task_id}:{entry['state_hash']}"
++            base = {"trial_id": identity, "group": args.tag, "task_id": args.task_id,
++                    "trial_index": ep, "state_hash": entry["state_hash"], "attempt": attempt,
++                    "protocol_sha256": protocol_hash, "seed": 7, "stage": stage}
++            prefix = root / f"trial{ep:02d}_attempt{attempt:03d}"
++            start = dict(base, event="start", time_unix=time.time())
++            durable_write(str(prefix) + "_start.json", start)
++            events.append(start)
++            phase = "simulation_setup"
++            signal.alarm(600)
++            try:
++                if env is None:
++                    env = OffScreenRenderEnv(bddl_file_name=bddl, camera_heights=256, camera_widths=256)
++                # Reset episode/controller counters before restoring the same frozen state.
++                np.random.seed(7)
++                env.seed(7)
++                env.reset()
++                obs = env.set_init_state(np.asarray(entry["state"], dtype=np.float64))
++                if env.check_success():
++                    raise RuntimeError("frozen initial state already successful")
++                for _ in range(args.num_steps_wait):
++                    obs, _, done, _ = env.step(LIBERO_DUMMY_ACTION)
++                    if done or env.check_success():
++                        raise RuntimeError("frozen initial state succeeds during wait")
++                phase = "service"
++                if client is None:
++                    client = _ws.WebsocketClientPolicy(args.host, args.port)
++                    metadata = client.get_server_metadata()
++                    assert metadata["heldout_protocol_sha256"] == protocol_hash
++                    assert metadata["heldout_group"] == args.tag
++                actions = collections.deque()
++                frames = []
++                success = False
++                outcome = "timeout"  # control horizon exhausted, counts as task failure
++                steps = 0
++                while steps < args.max_steps:
++                    phase = "service"
++                    if not actions:
++                        img = np.ascontiguousarray(obs["agentview_image"][::-1, ::-1])
++                        wrist = np.ascontiguousarray(obs["robot0_eye_in_hand_image"][::-1, ::-1])
++                        def resize(x):
++                            return image_tools.convert_to_uint8(image_tools.resize_with_pad(x, args.resize_size, args.resize_size))
++                        chunk = np.asarray(client.infer({
++                            "observation/image": resize(img), "observation/wrist_image": resize(wrist),
++                            "observation/state": proprio8(obs), "prompt": str(task.language),
++                            "heldout_rng_seed": trial_seed(args.task_id, entry["state_hash"], steps),
++                        })["actions"])
++                        if chunk.shape != (10, 7) or not np.isfinite(chunk).all():
++                            raise RuntimeError(f"invalid policy action chunk {chunk.shape}")
++                        actions.extend(chunk[:args.replan_steps])
++                    phase = "simulation"
++                    frames.append(np.asarray(obs["agentview_image"]).copy())
++                    obs, _, done, _ = env.step(np.asarray(actions.popleft(), dtype=np.float32).tolist())
++                    steps += 1
++                    if env.check_success():
++                        success, outcome = True, "success"
++                        break
++                    if done:
++                        outcome = "policy_failure"
++                        break
++                video = None
++                # Representative first N successes and failures per group/task.
++                previous_count = sum(e["success"] == success for e in finished.values())
++                if previous_count < args.save_video_n:
++                    phase = "video_io"
++                    video = videos / f"{args.tag}_task{args.task_id}_trial{ep:02d}_{outcome}.mp4"
++                    if video.exists():
++                        video = videos / f"{args.tag}_task{args.task_id}_trial{ep:02d}_attempt{attempt}_{outcome}.mp4"
++                    imageio.mimwrite(str(video), frames[::2], fps=10)
++                    # Decode one frame; an unreadable representative is an execution error.
++                    reader = imageio.get_reader(str(video))
++                    try:
++                        assert reader.get_data(0).size > 0
++                    finally:
++                        reader.close()
++                result = dict(base, event="result", success=success, outcome=outcome, steps=steps,
++                              video=str(video) if video else None, time_unix=time.time())
++                durable_write(str(prefix) + "_result.json", result)
++                events.append(result)
++                finished[ep] = result
++                print(f"HELDOUT_RESULT {identity} outcome={outcome} steps={steps} attempt={attempt}", flush=True)
++            except Exception as exc:
++                error = dict(base, event="error", phase=phase, error_type=type(exc).__name__,
++                             message=str(exc), traceback=traceback.format_exc(), time_unix=time.time())
++                durable_write(str(prefix) + "_error.json", error)
++                logging.exception("ERROR_GATE trial=%s phase=%s", identity, phase)
++                raise
++            finally:
++                signal.alarm(0)
++        print(f"HELDOUT_TASK_DONE stage={stage} group={args.tag} task={args.task_id} successes={sum(e['success'] for e in finished.values())}/{len(selected)}", flush=True)
++    finally:
++        if env is not None:
++            env.close()
++        lock.close()
+diff --git a/scripts/remote/serve_pnp_heldout.py b/scripts/remote/serve_pnp_heldout.py
+new file mode 100644
+index 0000000..4de0916
+--- /dev/null
++++ b/scripts/remote/serve_pnp_heldout.py
+@@ -0,0 +1,47 @@
++#!/usr/bin/env python3
++"""Use the existing trained policy with reproducible per-request RNG keys."""
++import argparse
++import hashlib
++import json
++import logging
++import pathlib
++
++import jax
++from openpi.policies import policy_config
++from openpi.serving import websocket_policy_server
++from openpi.training import config
++
++
++class SeededPolicy:
++    def __init__(self, policy):
++        self.policy = policy
++
++    def infer(self, obs):
++        obs = dict(obs)
++        seed = int(obs.pop("heldout_rng_seed"))
++        self.policy._rng = jax.random.key(seed)
++        return self.policy.infer(obs)
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--protocol", required=True)
++    parser.add_argument("--group", required=True)
++    parser.add_argument("--port", type=int, default=8017)
++    args = parser.parse_args()
++    raw = pathlib.Path(args.protocol).read_bytes()
++    protocol = json.loads(raw)
++    group = protocol["groups"][args.group]
++    cfg = config.get_config(group["config"])
++    assert cfg.model.action_horizon == 10
++    policy = policy_config.create_trained_policy(cfg, group["checkpoint"])
++    websocket_policy_server.WebsocketPolicyServer(
++        policy=SeededPolicy(policy), host="127.0.0.1", port=args.port,
++        metadata={"heldout_protocol_sha256": hashlib.sha256(raw).hexdigest(),
++                  "heldout_group": args.group, "model_metadata": policy.metadata},
++    ).serve_forever()
++
++
++if __name__ == "__main__":
++    logging.basicConfig(level=logging.INFO)
++    main()
+diff --git a/scripts/remote/summarize_pnp_heldout.py b/scripts/remote/summarize_pnp_heldout.py
+new file mode 100644
+index 0000000..6f837c2
+--- /dev/null
++++ b/scripts/remote/summarize_pnp_heldout.py
+@@ -0,0 +1,119 @@
++#!/usr/bin/env python3
++"""Recompute all counts from trial events, never from pre-existing summaries."""
++import argparse
++import csv
++import hashlib
++import json
++import pathlib
++
++
++def recompute(root, protocol_path, partial=False):
++    protocol_path = pathlib.Path(protocol_path)
++    digest = hashlib.sha256(protocol_path.read_bytes()).hexdigest()
++    protocol = json.loads(protocol_path.read_text())
++    manifest_path = pathlib.Path(protocol["manifest"])
++    assert hashlib.sha256(manifest_path.read_bytes()).hexdigest() == protocol["manifest_sha256"]
++    manifest = json.loads(manifest_path.read_text())
++    expected = {}
++    for group in protocol["group_order"]:
++        for task in manifest["tasks"]:
++            for state in task["states"]:
++                key = f"{group}:libero_spatial:{task['task_id']}:{state['state_hash']}"
++                assert key not in expected
++                expected[key] = (group, task["task_id"], state["trial_index"])
++    assert len(expected) == 2000
++    results, starts, terminals, errors = {}, {}, {}, []
++    for path in sorted(pathlib.Path(root).glob("*/task*/*.json")):
++        event = json.loads(path.read_text())
++        assert event["stage"] == "formal", "preflight must never enter formal scores"
++        identity = event["trial_id"]
++        assert identity in expected and event["protocol_sha256"] == digest, str(path)
++        assert (event["group"], event["task_id"], event["trial_index"]) == expected[identity]
++        attempt = (identity, event["attempt"])
++        assert event["attempt"] >= 1
++        if event["event"] == "start":
++            assert attempt not in starts
++            starts[attempt] = event
++        elif event["event"] in ("result", "error"):
++            assert attempt not in terminals
++            terminals[attempt] = event
++            if event["event"] == "error":
++                errors.append(event)
++                continue
++            assert identity not in results, f"duplicate scored identity: {identity}"
++            assert isinstance(event["success"], bool)
++            assert event["outcome"] in ("success", "timeout", "policy_failure")
++            assert event["success"] == (event["outcome"] == "success")
++            assert 0 < event["steps"] <= 220
++            if event["outcome"] == "timeout":
++                assert event["steps"] == 220
++            results[identity] = event
++        else:
++            raise ValueError(f"unknown event: {path}")
++    assert set(terminals) <= set(starts), "terminal event lacks start"
++    for identity, attempt in starts:
++        previous = [n for key, n in starts if key == identity]
++        assert sorted(previous) == list(range(1, max(previous) + 1))
++        if identity in results:
++            assert attempt <= results[identity]["attempt"], "attempt after scored result"
++    missing = sorted(set(expected) - set(results))
++    if not partial:
++        assert not missing, f"missing {len(missing)} valid trials"
++    rows = []
++    for task_id in range(10):
++        base = [e for e in results.values() if e["group"] == "G0" and e["task_id"] == task_id]
++        base_rate = sum(e["success"] for e in base) / len(base) if base else None
++        for group in protocol["group_order"]:
++            records = [e for e in results.values() if e["group"] == group and e["task_id"] == task_id]
++            success = sum(e["success"] for e in records)
++            rate = success / len(records) if records else None
++            rows.append({"group": group, "task_id": task_id, "successes": success,
++                         "trials": len(records), "success_rate": rate,
++                         "delta_vs_g0_pp": 100 * (rate - base_rate) if rate is not None and base_rate is not None else None})
++    return {"protocol_sha256": digest, "rows": rows, "results": results,
++            "missing": missing, "execution_errors": errors,
++            "interrupted_attempts": [starts[k] for k in set(starts) - set(terminals)],
++            "extra_attempts": len(starts) - len(set(key for key, attempt in starts))}
++
++
++def main():
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--root", required=True)
++    parser.add_argument("--protocol", required=True)
++    parser.add_argument("--out", required=True)
++    parser.add_argument("--partial", action="store_true")
++    args = parser.parse_args()
++    report = recompute(args.root, args.protocol, args.partial)
++    out = pathlib.Path(args.out)
++    out.mkdir(parents=True, exist_ok=True)
++    with (out / "per_task.csv").open("w", newline="") as f:
++        writer = csv.DictWriter(f, fieldnames=list(report["rows"][0]))
++        writer.writeheader()
++        writer.writerows(report["rows"])
++    (out / "audit.json").write_text(json.dumps({k: v for k, v in report.items() if k != "results"}, indent=2) + "\n")
++    rows = report["rows"]
++    total = {g: (sum(r["successes"] for r in rows if r["group"] == g), sum(r["trials"] for r in rows if r["group"] == g)) for g in ("A29999", "G0", "G1", "G2")}
++    lines = ["# PnP held-out spatial results", "", "Incomplete" if report["missing"] else "Complete: 2000/2000 valid trials", "",
++             "G0 is an internal control using some official hyperparameters: batch32 (micro8 × accum4), horizon10, synchronous replan5. Official installed-source evidence: logs/pnp-config-evidence.txt; config.py TrainConfig.batch_size and examples/libero/main.py Args.replan_steps.", "",
++             "| Group | Successes / trials | Rate | Δ vs G0 | Difference from G0 |", "|---|---:|---:|---:|---|"]
++    notes = {"A29999": "A/29999, no PnP fine-tuning; different data/normalization", "G0": "internal control, micro8 ×4", "G1": "native batch16; different training exposure/RNG", "G2": "same G0 weights/normalization; synchronous replan10 only"}
++    bsuccess, bcount = total["G0"]
++    for group, (success, count) in total.items():
++        rate = f"{100 * success / count:.1f}%" if count else "—"
++        delta = f"{100 * (success / count - bsuccess / bcount):+.1f}pp" if count and bcount else "—"
++        lines.append(f"| {group} | {success}/{count} | {rate} | {delta} | {notes[group]} |")
++    lines += ["", "| Task | Group | Successes / trials | Rate | Δ vs G0 |", "|---:|---|---:|---:|---:|"]
++    for row in rows:
++        rate = f"{100 * row['success_rate']:.1f}%" if row["success_rate"] is not None else "—"
++        delta = f"{row['delta_vs_g0_pp']:+.1f}pp" if row["delta_vs_g0_pp"] is not None else "—"
++        lines.append(f"| {row['task_id']} | {row['group']} | {row['successes']}/{row['trials']} | {rate} | {delta} |")
++    lines += ["", f"Protocol SHA256: {report['protocol_sha256']}",
++              f"Execution errors: {len(report['execution_errors'])}; interrupted attempts: {len(report['interrupted_attempts'])}; extra attempts: {report['extra_attempts']}.", "",
++              "Held-out only against all 31 PnP collection attempts; no claim of isolation from A's earlier training data. Task2 includes 31 native-reset generated states, fixed before policy scores. Nonofficial xyz+quaternion+first-gripper state encoding is retained under the prior gate approval. Results are internal comparisons. G0/G1 exposure differs and cannot isolate batch causality; 50 trials/task have sampling uncertainty. G2 is synchronous replanning, not async RTC.", "",
++              "Raw events: ../trials/; frozen inputs: ../heldout/manifest.json and ../protocol.json; videos: ../videos/. No prior evaluation results are included."]
++    (out / "report.md").write_text("\n".join(lines) + "\n")
++    print(f"RECOMPUTED valid={len(report['results'])} missing={len(report['missing'])}", flush=True)
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/remote/test_pnp_heldout.py b/scripts/remote/test_pnp_heldout.py
+new file mode 100644
+index 0000000..cb82f04
+--- /dev/null
++++ b/scripts/remote/test_pnp_heldout.py
+@@ -0,0 +1,141 @@
++#!/usr/bin/env python3
++"""Exercise scoring, manifest rejection and resume without policy rollouts."""
++import contextlib
++import copy
++import io
++import json
++import pathlib
++import tempfile
++import types
++import unittest
++from unittest import mock
++
++import numpy as np
++
++from build_pnp_heldout import file_hash, state_hash
++from eval_libero_task import Args
++import pnp_heldout_eval as evaluation
++from summarize_pnp_heldout import recompute
++
++
++class HeldoutTest(unittest.TestCase):
++    def setUp(self):
++        self.temp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.temp.cleanup)
++        self.root = pathlib.Path(self.temp.name)
++        self.bddl = self.root / "scene.bddl"
++        self.bddl.write_text("test scene")
++        self.manifest = {"excluded_state_hashes": [state_hash([0, i + 10000, 0]) for i in range(31)], "tasks": []}
++        for task_id in range(10):
++            states = []
++            for index in range(50):
++                state = [0, task_id * 100 + index, 1]
++                states.append({"trial_index": index, "state": state, "state_hash": state_hash(state)})
++            self.manifest["tasks"].append({"task_id": task_id, "language": f"task {task_id}", "states": states, "bddl_sha256": file_hash(self.bddl)})
++        self.manifest_path = self.root / "manifest.json"
++        self.manifest_path.write_text(json.dumps(self.manifest))
++        self.protocol = {"manifest": str(self.manifest_path), "manifest_sha256": file_hash(self.manifest_path),
++            "groups": {g: {"checkpoint": "test", "config": "test", "replan": 10 if g == "G2" else 5} for g in ("A29999", "G0", "G1", "G2")},
++            "group_order": ["A29999", "G0", "G1", "G2"], "eval_scripts_sha256": {},
++            "seed": 7, "max_steps": 220, "num_steps_wait": 10, "resize_size": 224, "task_suite_name": "libero_spatial"}
++        self.protocol_path = self.root / "protocol.json"
++        self.protocol_path.write_text(json.dumps(self.protocol))
++        self.args = Args(tag="G0", task_id=1, checkpoint_path="test", policy_config="test", save_video_n=0,
++            init_manifest=str(self.manifest_path), protocol_file=str(self.protocol_path),
++            results_path=str(self.root / "trials"), video_out_path=str(self.root / "videos"))
++
++    def test_manifest_content_identity_and_rejections(self):
++        evaluation.verify_manifest(self.manifest)
++        self.assertEqual(state_hash([0, 1, 2]), state_hash([99, 1, 2]))
++        for kind in ("duplicate", "leak", "order", "count"):
++            manifest = copy.deepcopy(self.manifest)
++            states = manifest["tasks"][0]["states"]
++            if kind == "duplicate":
++                states[1] = copy.deepcopy(states[0])
++            elif kind == "leak":
++                manifest["excluded_state_hashes"][0] = states[0]["state_hash"]
++            elif kind == "order":
++                states[0]["trial_index"] = 99
++            else:
++                states.pop()
++            with self.assertRaises(AssertionError, msg=kind):
++                evaluation.verify_manifest(manifest)
++        self.args.task_id = 10
++        with self.assertRaises(AssertionError):
++            evaluation.evaluate(self.args)
++
++    def test_error_resume_and_no_duplicate_score(self):
++        digest = file_hash(self.protocol_path)
++        counts = {"calls": 0, "fail_once": True}
++        class Env:
++            def __init__(self, **kwargs): self.steps = 0
++            def seed(self, seed): pass
++            def reset(self): self.steps = 0
++            def set_init_state(self, state): return self.obs()
++            def obs(self):
++                return {"agentview_image": np.zeros((2, 2, 3), np.uint8), "robot0_eye_in_hand_image": np.zeros((2, 2, 3), np.uint8),
++                        "robot0_eef_pos": np.zeros(3), "robot0_eef_quat": np.array([0, 0, 0, 1]), "robot0_gripper_qpos": np.zeros(2)}
++            def step(self, action):
++                self.steps += 1
++                return self.obs(), 0, False, {}
++            def check_success(self): return self.steps > 10
++            def close(self): pass
++        class Client:
++            def __init__(self, *args): pass
++            def get_server_metadata(self): return {"heldout_protocol_sha256": digest, "heldout_group": "G0"}
++            def infer(self, obs):
++                counts["calls"] += 1
++                if counts["fail_once"]:
++                    counts["fail_once"] = False
++                    raise RuntimeError("injected service error")
++                return {"actions": np.zeros((10, 7))}
++        suite = types.SimpleNamespace(get_task=lambda i: types.SimpleNamespace(language=f"task {i}"),
++            get_task_bddl_file_path=lambda i: str(self.bddl))
++        with mock.patch.object(evaluation.benchmark, "get_benchmark_dict", return_value={"libero_spatial": lambda: suite}), \
++             mock.patch.object(evaluation, "OffScreenRenderEnv", Env), \
++             mock.patch.object(evaluation._ws, "WebsocketClientPolicy", Client), \
++             contextlib.redirect_stdout(io.StringIO()):
++            with self.assertLogs(level="ERROR"), self.assertRaisesRegex(RuntimeError, "injected"):
++                evaluation.evaluate(self.args)
++            evaluation.evaluate(self.args)
++            before = counts["calls"]
++            evaluation.evaluate(self.args)
++            self.assertEqual(counts["calls"], before)
++            events = evaluation.read_events(self.root / "trials/G0/task1")
++            self.assertEqual(sum(e["event"] == "result" for e in events), 50)
++            self.assertEqual(sum(e["event"] == "error" for e in events), 1)
++            report = recompute(self.root / "trials", self.protocol_path, partial=True)
++            self.assertEqual(len(report["results"]), 50)
++            self.assertEqual(report["extra_attempts"], 1)
++            # A changed protocol must reject existing scored events.
++            self.protocol["test_revision"] = 2
++            self.protocol_path.write_text(json.dumps(self.protocol))
++            with self.assertRaisesRegex(AssertionError, "resume protocol mismatch"):
++                evaluation.evaluate(self.args)
++
++    def test_independent_2000_trial_recount(self):
++        digest = file_hash(self.protocol_path)
++        root = self.root / "trials"
++        for gi, group in enumerate(self.protocol["group_order"]):
++            for task in self.manifest["tasks"]:
++                directory = root / group / f"task{task['task_id']}"
++                directory.mkdir(parents=True)
++                for state in task["states"]:
++                    success = state["trial_index"] < 40 + gi
++                    event = {"protocol_sha256": digest, "trial_id": f"{group}:libero_spatial:{task['task_id']}:{state['state_hash']}",
++                        "group": group, "task_id": task["task_id"], "trial_index": state["trial_index"], "attempt": 1, "stage": "formal"}
++                    (directory / f"{state['trial_index']}_start.json").write_text(json.dumps(dict(event, event="start")))
++                    (directory / f"{state['trial_index']}_result.json").write_text(json.dumps(dict(event, event="result", success=success,
++                        outcome="success" if success else "timeout", steps=1 if success else 220)))
++        report = recompute(root, self.protocol_path)
++        self.assertEqual(len(report["results"]), 2000)
++        self.assertEqual(len(report["rows"]), 40)
++        self.assertAlmostEqual(next(r for r in report["rows"] if r["group"] == "G2")["delta_vs_g0_pp"], 4.0)
++        file = root / "G0/task0/0_result.json"
++        (file.parent / "duplicate_result.json").write_text(file.read_text())
++        with self.assertRaises(AssertionError):
++            recompute(root, self.protocol_path)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/scripts/remote/103-pnp-heldout-spatial.sh b/scripts/remote/103-pnp-heldout-spatial.sh
+new file mode 100644
+index 0000000..d358d8f
+--- /dev/null
++++ b/scripts/remote/103-pnp-heldout-spatial.sh
+@@ -0,0 +1,102 @@
++#!/usr/bin/env bash
++# Frozen 4 groups × 10 spatial tasks × 50 trials; never launch training.
++set -euo pipefail
++source /root/autodl-tmp/env.sh
++W=/root/autodl-tmp
++RUN=$W/logs/pnp-heldout-spatial-1106104308
++PROTOCOL=$RUN/protocol.json
++PORT=8017
++MODE=${1:-formal}
++case "$MODE" in preflight|formal) ;; *) echo "unknown mode: $MODE"; exit 2 ;; esac
++cd "$W/openpi"
++export PYTHONPATH=$PWD/third_party/libero
++mkdir -p "$RUN/trials" "$RUN/videos"
++exec 9>"$RUN/.runner.lock"
++flock -n 9
++SP=""
++cleanup() {
++  if [[ -n "$SP" ]]; then
++    kill "$SP" 2>/dev/null || true
++    wait "$SP" 2>/dev/null || true
++  fi
++}
++trap cleanup EXIT
++trap 'exit 130' INT TERM
++trap 'rc=$?; echo "ERROR_GATE rc=$rc mode=$MODE line=$LINENO"; exit "$rc"' ERR
++if [[ ! -f "$PROTOCOL" ]]; then
++  .venv/bin/python "$W/scripts/freeze_pnp_heldout.py" \
++    --manifest "$RUN/heldout/manifest.json" --out "$PROTOCOL"
++fi
++# Verify actual files on every start/resume, including model shards and normalizers.
++.venv/bin/python "$W/scripts/freeze_pnp_heldout.py" --out "$PROTOCOL" --verify
++if [[ "$MODE" == formal ]]; then
++  .venv/bin/python - "$PROTOCOL" "$RUN/preflight-passed.json" <<'PY'
++import hashlib, json, pathlib, sys
++digest = hashlib.sha256(pathlib.Path(sys.argv[1]).read_bytes()).hexdigest()
++assert json.loads(pathlib.Path(sys.argv[2]).read_text())["protocol_sha256"] == digest
++PY
++  TASKS="0 1 2 3 4 5 6 7 8 9"
++  RESULTS=$RUN/trials
++  VIDEOS=$RUN/videos
++  EXTRA_ARGS=()
++else
++  TASKS="2 4"
++  RESULTS=$RUN/preflight-trials
++  VIDEOS=$RUN/preflight-videos
++  EXTRA_ARGS=(--preflight-trials 2)
++fi
++for group in A29999 G0 G1 G2; do
++  case "$group" in
++    A29999) cfg=pi05_libero_lora; ckpt=$W/openpi/checkpoints/$cfg/phase1_lora_baseline/29999; replan=5 ;;
++    G0|G2) cfg=pi05_libero_lora_pnp; ckpt=$W/openpi/checkpoints/$cfg/pnp_g0_accum_bs32_mb8/2499; replan=5 ;;
++    G1) cfg=pi05_libero_lora_pnp; ckpt=$W/openpi/checkpoints/$cfg/pnp_g1_bs16/2499; replan=5 ;;
++  esac
++  if [[ "$group" == G2 ]]; then replan=10; fi
++  # A dedicated port prevents accidental use of a previous evaluation server.
++  if (exec 3<>/dev/tcp/127.0.0.1/$PORT) 2>/dev/null; then
++    echo "ERROR_GATE port $PORT already in use"; exit 1
++  fi
++  .venv/bin/python "$W/scripts/serve_pnp_heldout.py" --protocol "$PROTOCOL" \
++    --group "$group" --port "$PORT" >> "$RUN/server-$group.log" 2>&1 &
++  SP=$!
++  ready=0
++  for ((poll=0; poll<360; poll++)); do
++    if ! kill -0 "$SP" 2>/dev/null; then break; fi
++    if curl --fail --silent "http://127.0.0.1:$PORT/healthz" >/dev/null; then ready=1; break; fi
++    sleep 5
++  done
++  if [[ "$ready" -ne 1 ]]; then echo "ERROR_GATE server $group failed"; exit 1; fi
++  for task in $TASKS; do
++    echo "EVAL_START mode=$MODE group=$group task=$task $(date -Iseconds)"
++    examples/libero/.venv/bin/python "$W/scripts/eval_libero_task.py" \
++      --tag "$group" --port "$PORT" --task-suite-name libero_spatial --task-id "$task" \
++      --num-trials 50 --replan-steps "$replan" --seed 7 --max-steps 220 --num-steps-wait 10 \
++      --checkpoint-path "$ckpt" --policy-config "$cfg" --save-video-n 1 \
++      --init-manifest "$RUN/heldout/manifest.json" --protocol-file "$PROTOCOL" \
++      --results-path "$RESULTS" --video-out-path "$VIDEOS" "${EXTRA_ARGS[@]}" \
++      >> "$RUN/$MODE-eval-$group-task$task.log" 2>&1
++  done
++  cleanup
++  SP=""
++done
++if [[ "$MODE" == preflight ]]; then
++  .venv/bin/python - "$PROTOCOL" "$RUN" <<'PY'
++import hashlib, json, pathlib, sys
++protocol, run = map(pathlib.Path, sys.argv[1:])
++results = [json.loads(p.read_text()) for p in (run / "preflight-trials").glob("*/task*/*_result.json")]
++assert len(results) == 16 and all(e["stage"] == "preflight" for e in results)
++assert len({e["trial_id"] for e in results}) == 16
++marker = {"protocol_sha256": hashlib.sha256(protocol.read_bytes()).hexdigest(), "preflight_trials": 16}
++path = run / "preflight-passed.json"
++if path.exists():
++    assert json.loads(path.read_text()) == marker
++else:
++    with path.open("x") as f:
++        json.dump(marker, f, indent=2)
++print("PREFLIGHT_DONE (excluded from formal scores)")
++PY
++  exit 0
++fi
++.venv/bin/python "$W/scripts/summarize_pnp_heldout.py" \
++  --root "$RUN/trials" --protocol "$PROTOCOL" --out "$RUN/summary"
++echo "FORMAL_DONE $(date -Iseconds)"
+diff --git a/scripts/remote/104-resume-pnp-heldout-spatial.sh b/scripts/remote/104-resume-pnp-heldout-spatial.sh
+new file mode 100644
+index 0000000..ee1dd34
+--- /dev/null
++++ b/scripts/remote/104-resume-pnp-heldout-spatial.sh
+@@ -0,0 +1,37 @@
++#!/usr/bin/env bash
++# Error-gate-approved Py3.8 environment capture, then preflight and formal eval.
++set -euo pipefail
++source /root/autodl-tmp/env.sh
++W=/root/autodl-tmp
++RUN=$W/logs/pnp-heldout-spatial-1106104308
++cd "$W/openpi"
++mkdir -p "$RUN"
++exec 8>"$RUN/.resume.lock"
++flock -n 8
++trap 'rc=$?; echo "ERROR_GATE rc=$rc phase=environment-or-evaluation line=$LINENO"; exit "$rc"' ERR
++
++# Keep the original failed capture. Publish a new complete file only on success.
++ENV_CAPTURE=$(mktemp "$RUN/environment-compatible.XXXXXX")
++date -Iseconds > "$ENV_CAPTURE"
++nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv >> "$ENV_CAPTURE"
++df -h "$W" >> "$ENV_CAPTURE"
++for interpreter in .venv/bin/python examples/libero/.venv/bin/python; do
++  "$interpreter" - >> "$ENV_CAPTURE" <<'PY'
++import importlib.metadata as metadata
++import json
++import sys
++
++versions = {}
++for name in ("numpy", "imageio", "jax", "jaxlib", "mujoco", "torch", "websockets", "robosuite", "bddl"):
++    try:
++        versions[name] = metadata.version(name)
++    except metadata.PackageNotFoundError:
++        versions[name] = None
++print(sys.executable, sys.version)
++print(json.dumps(versions, sort_keys=True))
++PY
++done
++mv "$ENV_CAPTURE" "$RUN/environment-compatible.txt"
++echo "ENVIRONMENT_CAPTURE_DONE"
++bash "$W/scripts/103-pnp-heldout-spatial.sh" preflight
++bash "$W/scripts/103-pnp-heldout-spatial.sh" formal

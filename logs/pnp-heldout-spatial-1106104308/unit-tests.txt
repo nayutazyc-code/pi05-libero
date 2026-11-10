@@ -1,0 +1,14 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+test_error_resume_and_no_duplicate_score (__main__.HeldoutTest) ... /root/autodl-tmp/conda/py38/lib/python3.8/traceback.py:220: ResourceWarning: unclosed file <_io.TextIOWrapper name='/root/autodl-tmp/tmp/tmpwuu9685b/trials/G0/task1/.lock' mode='w' encoding='UTF-8'>
+  tb.tb_frame.clear()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_independent_2000_trial_recount (__main__.HeldoutTest) ... ok
+test_manifest_content_identity_and_rejections (__main__.HeldoutTest) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.740s
+
+OK

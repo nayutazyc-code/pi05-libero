@@ -1,0 +1,11 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+test_error_resume_and_no_duplicate_score (__main__.HeldoutTest) ... ok
+test_independent_2000_trial_recount (__main__.HeldoutTest) ... ok
+test_manifest_content_identity_and_rejections (__main__.HeldoutTest) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.018s
+
+OK

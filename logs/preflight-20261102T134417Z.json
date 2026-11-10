@@ -1,0 +1,10 @@
+{
+  "timestamp_utc": "20261102T134417Z",
+  "target": "SSH_USER@SSH_HOST:SSH_PORT",
+  "mode": "read-only preflight, existing SSH authentication only",
+  "password_environment_detected": false,
+  "script": "scripts/remote/00-preflight.sh",
+  "returncode": 255,
+  "stdout": "",
+  "stderr": "Bad owner or permissions on /etc/ssh/ssh_config.d/20-systemd-ssh-proxy.conf\n"
+}

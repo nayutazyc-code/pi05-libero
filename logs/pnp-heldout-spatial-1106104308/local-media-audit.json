@@ -1,0 +1,74 @@
+{
+  "videos_decoded_locally": 75,
+  "frames_decoded": 6485,
+  "formal_videos": 67,
+  "preflight_videos": 8,
+  "loss_csvs": [
+    {
+      "file": "logs/plots/pnp_g0_loss.csv",
+      "points": 0,
+      "strictly_increasing_unique_steps": true,
+      "sha256": "5b65537efce1021ed4dd4447133242bdd9cb4f7814bf890e446e7bd486b24116"
+    },
+    {
+      "file": "logs/plots/pnp_g0_mb16_failed_wandb_loss.csv",
+      "points": 0,
+      "strictly_increasing_unique_steps": true,
+      "sha256": "5b65537efce1021ed4dd4447133242bdd9cb4f7814bf890e446e7bd486b24116"
+    },
+    {
+      "file": "logs/plots/pnp_g0_native_wandb_loss.csv",
+      "points": 0,
+      "strictly_increasing_unique_steps": true,
+      "sha256": "5b65537efce1021ed4dd4447133242bdd9cb4f7814bf890e446e7bd486b24116"
+    },
+    {
+      "file": "logs/plots/pnp_g0_wandb_loss.csv",
+      "points": 50,
+      "strictly_increasing_unique_steps": true,
+      "sha256": "4ef1ecdb6e434735bf8009e29e9c114e578804a8022dcfe7c8308a46c89198c3"
+    },
+    {
+      "file": "logs/plots/pnp_g1_loss.csv",
+      "points": 50,
+      "strictly_increasing_unique_steps": true,
+      "sha256": "a26e72e7dd05c921b004f7e136c65fa149f43926ff7f367b6bf1e1870c59cc5e"
+    },
+    {
+      "file": "logs/plots/pnp_g1_wandb_loss.csv",
+      "points": 50,
+      "strictly_increasing_unique_steps": true,
+      "sha256": "c6a242788c231a56c7ab4e0b30c547bd04f9669871bc84b5a956f33116c4355c"
+    }
+  ],
+  "loss_images": [
+    {
+      "file": "logs/plots/pnp_g0_wandb_loss_curve.png",
+      "size": [
+        1200,
+        600
+      ],
+      "sha256": "6d3d34ecab8c1cf26767ce186393d4257b726b2c517c7663899ee668dbaf1a44"
+    },
+    {
+      "file": "logs/plots/pnp_g1_loss_curve.png",
+      "size": [
+        960,
+        480
+      ],
+      "sha256": "7d5f9fce301cfb8782fccf0b7531203e1a4fbba27844fbdcb51d16031d2fc9b1"
+    },
+    {
+      "file": "logs/plots/pnp_g1_wandb_loss_curve.png",
+      "size": [
+        1200,
+        600
+      ],
+      "sha256": "07609d0a1b98fae48b66cb9ad370f44c1466cc6d2d37ae2837da73be3a0de885"
+    }
+  ],
+  "canonical_g0_g1_points": 50,
+  "canonical_steps": "0..2450 every 50 updates",
+  "empty_csv_disclosure": "Historical failed native G0/micro16 runs have header-only CSVs; successful G0 is pnp_g0_wandb_loss.csv.",
+  "all_checks_passed": true
+}

@@ -1,0 +1,329 @@
+{
+  "protocol_sha256": "b16e0bf433f132d6a9ceef3a55ac03b54eabc44120d6bd34624e80c5447efe32",
+  "rows": [
+    {
+      "group": "A29999",
+      "task_id": 0,
+      "successes": 50,
+      "trials": 50,
+      "success_rate": 1.0,
+      "delta_vs_g0_pp": 2.0000000000000018
+    },
+    {
+      "group": "G0",
+      "task_id": 0,
+      "successes": 49,
+      "trials": 50,
+      "success_rate": 0.98,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G1",
+      "task_id": 0,
+      "successes": 50,
+      "trials": 50,
+      "success_rate": 1.0,
+      "delta_vs_g0_pp": 2.0000000000000018
+    },
+    {
+      "group": "G2",
+      "task_id": 0,
+      "successes": 43,
+      "trials": 50,
+      "success_rate": 0.86,
+      "delta_vs_g0_pp": -12.0
+    },
+    {
+      "group": "A29999",
+      "task_id": 1,
+      "successes": 49,
+      "trials": 50,
+      "success_rate": 0.98,
+      "delta_vs_g0_pp": 98.0
+    },
+    {
+      "group": "G0",
+      "task_id": 1,
+      "successes": 0,
+      "trials": 50,
+      "success_rate": 0.0,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G1",
+      "task_id": 1,
+      "successes": 2,
+      "trials": 50,
+      "success_rate": 0.04,
+      "delta_vs_g0_pp": 4.0
+    },
+    {
+      "group": "G2",
+      "task_id": 1,
+      "successes": 0,
+      "trials": 50,
+      "success_rate": 0.0,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "A29999",
+      "task_id": 2,
+      "successes": 50,
+      "trials": 50,
+      "success_rate": 1.0,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G0",
+      "task_id": 2,
+      "successes": 50,
+      "trials": 50,
+      "success_rate": 1.0,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G1",
+      "task_id": 2,
+      "successes": 49,
+      "trials": 50,
+      "success_rate": 0.98,
+      "delta_vs_g0_pp": -2.0000000000000018
+    },
+    {
+      "group": "G2",
+      "task_id": 2,
+      "successes": 50,
+      "trials": 50,
+      "success_rate": 1.0,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "A29999",
+      "task_id": 3,
+      "successes": 47,
+      "trials": 50,
+      "success_rate": 0.94,
+      "delta_vs_g0_pp": 13.99999999999999
+    },
+    {
+      "group": "G0",
+      "task_id": 3,
+      "successes": 40,
+      "trials": 50,
+      "success_rate": 0.8,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G1",
+      "task_id": 3,
+      "successes": 41,
+      "trials": 50,
+      "success_rate": 0.82,
+      "delta_vs_g0_pp": 1.9999999999999907
+    },
+    {
+      "group": "G2",
+      "task_id": 3,
+      "successes": 31,
+      "trials": 50,
+      "success_rate": 0.62,
+      "delta_vs_g0_pp": -18.000000000000004
+    },
+    {
+      "group": "A29999",
+      "task_id": 4,
+      "successes": 48,
+      "trials": 50,
+      "success_rate": 0.96,
+      "delta_vs_g0_pp": 94.0
+    },
+    {
+      "group": "G0",
+      "task_id": 4,
+      "successes": 1,
+      "trials": 50,
+      "success_rate": 0.02,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G1",
+      "task_id": 4,
+      "successes": 0,
+      "trials": 50,
+      "success_rate": 0.0,
+      "delta_vs_g0_pp": -2.0
+    },
+    {
+      "group": "G2",
+      "task_id": 4,
+      "successes": 1,
+      "trials": 50,
+      "success_rate": 0.02,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "A29999",
+      "task_id": 5,
+      "successes": 47,
+      "trials": 50,
+      "success_rate": 0.94,
+      "delta_vs_g0_pp": 77.99999999999999
+    },
+    {
+      "group": "G0",
+      "task_id": 5,
+      "successes": 8,
+      "trials": 50,
+      "success_rate": 0.16,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G1",
+      "task_id": 5,
+      "successes": 24,
+      "trials": 50,
+      "success_rate": 0.48,
+      "delta_vs_g0_pp": 31.999999999999996
+    },
+    {
+      "group": "G2",
+      "task_id": 5,
+      "successes": 3,
+      "trials": 50,
+      "success_rate": 0.06,
+      "delta_vs_g0_pp": -10.0
+    },
+    {
+      "group": "A29999",
+      "task_id": 6,
+      "successes": 49,
+      "trials": 50,
+      "success_rate": 0.98,
+      "delta_vs_g0_pp": 7.9999999999999964
+    },
+    {
+      "group": "G0",
+      "task_id": 6,
+      "successes": 45,
+      "trials": 50,
+      "success_rate": 0.9,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G1",
+      "task_id": 6,
+      "successes": 41,
+      "trials": 50,
+      "success_rate": 0.82,
+      "delta_vs_g0_pp": -8.000000000000007
+    },
+    {
+      "group": "G2",
+      "task_id": 6,
+      "successes": 25,
+      "trials": 50,
+      "success_rate": 0.5,
+      "delta_vs_g0_pp": -40.0
+    },
+    {
+      "group": "A29999",
+      "task_id": 7,
+      "successes": 50,
+      "trials": 50,
+      "success_rate": 1.0,
+      "delta_vs_g0_pp": 16.000000000000004
+    },
+    {
+      "group": "G0",
+      "task_id": 7,
+      "successes": 42,
+      "trials": 50,
+      "success_rate": 0.84,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G1",
+      "task_id": 7,
+      "successes": 49,
+      "trials": 50,
+      "success_rate": 0.98,
+      "delta_vs_g0_pp": 14.000000000000002
+    },
+    {
+      "group": "G2",
+      "task_id": 7,
+      "successes": 49,
+      "trials": 50,
+      "success_rate": 0.98,
+      "delta_vs_g0_pp": 14.000000000000002
+    },
+    {
+      "group": "A29999",
+      "task_id": 8,
+      "successes": 47,
+      "trials": 50,
+      "success_rate": 0.94,
+      "delta_vs_g0_pp": 68.0
+    },
+    {
+      "group": "G0",
+      "task_id": 8,
+      "successes": 13,
+      "trials": 50,
+      "success_rate": 0.26,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G1",
+      "task_id": 8,
+      "successes": 29,
+      "trials": 50,
+      "success_rate": 0.58,
+      "delta_vs_g0_pp": 31.999999999999996
+    },
+    {
+      "group": "G2",
+      "task_id": 8,
+      "successes": 21,
+      "trials": 50,
+      "success_rate": 0.42,
+      "delta_vs_g0_pp": 15.999999999999998
+    },
+    {
+      "group": "A29999",
+      "task_id": 9,
+      "successes": 50,
+      "trials": 50,
+      "success_rate": 1.0,
+      "delta_vs_g0_pp": 100.0
+    },
+    {
+      "group": "G0",
+      "task_id": 9,
+      "successes": 0,
+      "trials": 50,
+      "success_rate": 0.0,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G1",
+      "task_id": 9,
+      "successes": 0,
+      "trials": 50,
+      "success_rate": 0.0,
+      "delta_vs_g0_pp": 0.0
+    },
+    {
+      "group": "G2",
+      "task_id": 9,
+      "successes": 0,
+      "trials": 50,
+      "success_rate": 0.0,
+      "delta_vs_g0_pp": 0.0
+    }
+  ],
+  "missing": [],
+  "execution_errors": [],
+  "interrupted_attempts": [],
+  "extra_attempts": 0
+}

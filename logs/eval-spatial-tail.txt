@@ -1,0 +1,174 @@
+O:root:# successes: 478 (99.2%)
+
+ 64%|██████▍   | 32/50 [04:37<02:28,  8.27s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 33...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 483
+INFO:root:# successes: 479 (99.2%)
+
+ 66%|██████▌   | 33/50 [04:46<02:23,  8.45s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 34...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 484
+INFO:root:# successes: 480 (99.2%)
+
+ 68%|██████▊   | 34/50 [04:55<02:17,  8.58s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 35...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 485
+INFO:root:# successes: 481 (99.2%)
+
+ 70%|███████   | 35/50 [05:03<02:07,  8.47s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 36...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 486
+INFO:root:# successes: 482 (99.2%)
+
+ 72%|███████▏  | 36/50 [05:11<01:56,  8.29s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 37...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 487
+INFO:root:# successes: 483 (99.2%)
+
+ 74%|███████▍  | 37/50 [05:20<01:52,  8.63s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 38...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 488
+INFO:root:# successes: 484 (99.2%)
+
+ 76%|███████▌  | 38/50 [05:29<01:45,  8.77s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 39...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 489
+INFO:root:# successes: 485 (99.2%)
+
+ 78%|███████▊  | 39/50 [05:39<01:39,  9.02s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 40...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 490
+INFO:root:# successes: 486 (99.2%)
+
+ 80%|████████  | 40/50 [05:48<01:30,  9.01s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 41...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 491
+INFO:root:# successes: 487 (99.2%)
+
+ 82%|████████▏ | 41/50 [05:57<01:21,  9.04s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 42...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 492
+INFO:root:# successes: 488 (99.2%)
+
+ 84%|████████▍ | 42/50 [06:06<01:13,  9.23s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 43...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 493
+INFO:root:# successes: 489 (99.2%)
+
+ 86%|████████▌ | 43/50 [06:16<01:04,  9.27s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 44...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 494
+INFO:root:# successes: 489 (99.0%)
+
+ 88%|████████▊ | 44/50 [06:30<01:04, 10.74s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 45...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 495
+INFO:root:# successes: 490 (99.0%)
+
+ 90%|█████████ | 45/50 [06:39<00:51, 10.24s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 46...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 496
+INFO:root:# successes: 491 (99.0%)
+
+ 92%|█████████▏| 46/50 [06:49<00:40, 10.01s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 47...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 497
+INFO:root:# successes: 492 (99.0%)
+
+ 94%|█████████▍| 47/50 [06:57<00:28,  9.65s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 48...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 498
+INFO:root:# successes: 493 (99.0%)
+
+ 96%|█████████▌| 48/50 [07:06<00:18,  9.22s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 49...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 499
+INFO:root:# successes: 494 (99.0%)
+
+ 98%|█████████▊| 49/50 [07:13<00:08,  8.75s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 50...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 500
+INFO:root:# successes: 495 (99.0%)
+
+100%|██████████| 50/50 [07:21<00:00,  8.30s/it][A100%|██████████| 50/50 [07:21<00:00,  8.82s/it]
+INFO:root:Current task success rate: 0.96
+INFO:root:Current total success rate: 0.99
+100%|██████████| 10/10 [1:07:02<00:00, 414.84s/it]100%|██████████| 10/10 [1:07:02<00:00, 402.29s/it]
+INFO:root:Total success rate: 0.99
+INFO:root:Total episodes: 500
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f769d10e040>
+Traceback (most recent call last):
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: INFO:OpenGL.platform.ctypesloader:Failed to load library ( 'libGLU.so.0' ): libGLU.so.0: cannot open shared object file: No such file or directory
+EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f768d9a1540>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f769f85c9c0>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f769f85c9c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f769f85c640>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f769d1abe50>
+Traceback (most recent call last):
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f768d9a1540>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f769f85c9c0>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f769f85c9c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f769f85c640>,
+	),
+	result = 0
+)
+EVAL_DONE

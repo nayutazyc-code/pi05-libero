@@ -1,0 +1,2 @@
+PASS: 16 unique preflight results, all groups, task2 existing/generated, task4, protocol/stage, zero errors.
+Representative preflight videos: 8

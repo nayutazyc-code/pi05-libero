@@ -1,0 +1,17 @@
+{
+  "trial_id": "G0:libero_spatial:4:d56b29c450d7b2bfeb75fe77a5fc10a45e92abeba746b0a2b77e9cc3b3754975",
+  "group": "G0",
+  "task_id": 4,
+  "trial_index": 6,
+  "state_hash": "d56b29c450d7b2bfeb75fe77a5fc10a45e92abeba746b0a2b77e9cc3b3754975",
+  "attempt": 1,
+  "protocol_sha256": "b16e0bf433f132d6a9ceef3a55ac03b54eabc44120d6bd34624e80c5447efe32",
+  "seed": 7,
+  "stage": "formal",
+  "event": "result",
+  "success": true,
+  "outcome": "success",
+  "steps": 216,
+  "video": "/root/autodl-tmp/logs/pnp-heldout-spatial-1106104308/videos/G0_task4_trial06_success.mp4",
+  "time_unix": 1793940319.4115174
+}

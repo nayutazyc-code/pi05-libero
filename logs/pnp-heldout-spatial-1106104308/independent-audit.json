@@ -1,0 +1,30 @@
+{
+  "valid_trials": 2000,
+  "start_events": 2000,
+  "per_task_cells": 40,
+  "trials_per_group": 500,
+  "successes": {
+    "A29999": 487,
+    "G0": 248,
+    "G1": 285,
+    "G2": 223
+  },
+  "outcomes": {
+    "success": 1243,
+    "timeout": 757
+  },
+  "delta_vs_g0_pp": {
+    "A29999": 47.8,
+    "G0": 0.0,
+    "G1": 7.4,
+    "G2": -5.0
+  },
+  "manifest_sha256": "e70042f9ecd0fb870d05841569e9f2d3ad73d7533f6f103c3359cb15040f3f08",
+  "protocol_sha256": "b16e0bf433f132d6a9ceef3a55ac03b54eabc44120d6bd34624e80c5447efe32",
+  "errors": 0,
+  "duplicates": 0,
+  "missing": 0,
+  "collection_overlap": 0,
+  "g0_g2_same_assets": true,
+  "summary_matches_independent_recount": true
+}

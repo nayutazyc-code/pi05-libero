@@ -1,0 +1,154 @@
+Source snapshots and SHA256 (installed tree has no Git metadata)
+
+SHA256 src/openpi/training/config.py aeb27c0d6d8e390d28ae9e32e1b47ae57e343684fdebda2fc1835e9618e26508
+SOURCE src/openpi/training/config.py
+502:     checkpoint_base_dir: str = "./checkpoints"
+503: 
+504:     # Random seed that will be used by random generators during training.
+505:     seed: int = 42
+506:     # Global batch size.
+507:     batch_size: int = 32
+508:     # Number of workers to use for the data loader. Increasing this number will speed up data loading but
+509:     # will increase memory and CPU usage.
+510:     num_workers: int = 2
+SOURCE src/openpi/training/config.py
+764:     ),
+765:     TrainConfig(
+766:         name="pi05_libero_lora",
+767:         model=pi0_config.Pi0Config(
+768:             pi05=True, action_horizon=10, discrete_state_input=False,
+769:             paligemma_variant="gemma_2b_lora", action_expert_variant="gemma_300m_lora",
+770:         ),
+771:         data=LeRobotLiberoDataConfig(
+772:             repo_id="physical-intelligence/libero",
+773:             base_config=DataConfig(prompt_from_task=True),
+774:             extra_delta_transform=False,
+775:         ),
+776:         batch_size=32,
+777:         lr_schedule=_optimizer.CosineDecaySchedule(
+778:             warmup_steps=1_000, peak_lr=5e-5, decay_steps=30_000, decay_lr=5e-6,
+779:         ),
+780:         optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+781:         weight_loader=weight_loaders.CheckpointWeightLoader("gs://openpi-assets/checkpoints/pi05_base/params"),
+782:         num_train_steps=30_000,
+783:         freeze_filter=pi0_config.Pi0Config(
+784:             pi05=True, action_horizon=10, discrete_state_input=False,
+785:             paligemma_variant="gemma_2b_lora", action_expert_variant="gemma_300m_lora",
+786:         ).get_freeze_filter(),
+SOURCE src/openpi/training/config.py
+846:     # weight_loader = Exp A final 29999 params.
+847:     TrainConfig(
+848:         name="pi05_libero_lora_pnp",
+849:         model=pi0_config.Pi0Config(
+850:             pi05=True, action_horizon=10, discrete_state_input=False,
+851:             paligemma_variant="gemma_2b_lora", action_expert_variant="gemma_300m_lora",
+852:         ),
+853:         data=LeRobotLiberoDataConfig(
+854:             repo_id="local/pnp_policy_spatial_center",
+855:             base_config=DataConfig(prompt_from_task=True),
+856:             extra_delta_transform=False,
+857:         ),
+858:         batch_size=32,
+859:         lr_schedule=_optimizer.CosineDecaySchedule(
+860:             warmup_steps=200, peak_lr=5e-5, decay_steps=2500, decay_lr=5e-6,
+861:         ),
+862:         optimizer=_optimizer.AdamW(clip_gradient_norm=1.0),
+863:         weight_loader=weight_loaders.CheckpointWeightLoader("/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params"),
+864:         num_train_steps=2500,
+865:         freeze_filter=pi0_config.Pi0Config(
+866:             pi05=True, action_horizon=10, discrete_state_input=False,
+867:             paligemma_variant="gemma_2b_lora", action_expert_variant="gemma_300m_lora",
+868:         ).get_freeze_filter(),
+869:         ema_decay=None,
+870:     ),
+871:     #
+872:     # Fine-tuning Aloha configs.
+873:     #
+874:     # This is a test config that is used to illustate how train on a custom LeRobot dataset.
+875:     # For instructions on how to convert and train on your own Aloha dataset see examples/aloha_real/README.md
+876:     TrainConfig(
+877:         name="pi0_aloha_pen_uncap",
+
+SHA256 examples/libero/main.py d53748c95804ada559e3ca867305b8f755d8651c4c7f4e2723ef80aea55a3943
+SOURCE examples/libero/main.py
+22: class Args:
+23:     #################################################################################################################
+24:     # Model server parameters
+25:     #################################################################################################################
+26:     host: str = "0.0.0.0"
+27:     port: int = 8000
+28:     resize_size: int = 224
+29:     replan_steps: int = 5
+30: 
+31:     #################################################################################################################
+32:     # LIBERO environment-specific parameters
+33:     #################################################################################################################
+34:     task_suite_name: str = (
+35:         "libero_spatial"  # Task suite. Options: libero_spatial, libero_object, libero_goal, libero_10, libero_90
+SOURCE examples/libero/main.py
+130:                         element = {
+131:                             "observation/image": img,
+132:                             "observation/wrist_image": wrist_img,
+133:                             "observation/state": np.concatenate(
+134:                                 (
+135:                                     obs["robot0_eef_pos"],
+136:                                     _quat2axisangle(obs["robot0_eef_quat"]),
+137:                                     obs["robot0_gripper_qpos"],
+138:                                 )
+139:                             ),
+
+SHA256 scripts/train.py 891e0404d1704709568ba9b62549b2ffcd7b1f49c37c8730c87f8cc14154ecb2
+SOURCE scripts/train.py
+262:     for step in pbar:
+263:         with sharding.set_mesh(mesh):
+264:             train_state, info = ptrain_step(train_rng, train_state, batch)
+265:         infos.append(info)
+266:         if step % config.log_interval == 0:
+267:             stacked_infos = common_utils.stack_forest(infos)
+268:             reduced_info = jax.device_get(jax.tree.map(jnp.mean, stacked_infos))
+269:             info_str = ", ".join(f"{k}={v:.4f}" for k, v in reduced_info.items())
+270:             pbar.write(f"Step {step}: {info_str}")
+271:             logging.info(f"Step {step}: {info_str}")
+272:             wandb.log(reduced_info, step=step)
+273:             infos = []
+274:         batch = next(data_iter)
+275: 
+
+SHA256 examples/libero/.venv/lib/python3.8/site-packages/robosuite/controllers/base_controller.py 61f99a2daeb4eb6e39bfb996d94c5a5689ef3bc771d030d070193ea56d6a8332
+SOURCE examples/libero/.venv/lib/python3.8/site-packages/robosuite/controllers/base_controller.py
+104:     def scale_action(self, action):
+105:         """
+106:         Clips @action to be within self.input_min and self.input_max, and then re-scale the values to be within
+107:         the range self.output_min and self.output_max
+108: 
+109:         Args:
+110:             action (Iterable): Actions to scale
+111: 
+112:         Returns:
+113:             np.array: Re-scaled action
+114:         """
+115: 
+116:         if self.action_scale is None:
+117:             self.action_scale = abs(self.output_max - self.output_min) / abs(self.input_max - self.input_min)
+118:             self.action_output_transform = (self.output_max + self.output_min) / 2.0
+119:             self.action_input_transform = (self.input_max + self.input_min) / 2.0
+120:         action = np.clip(action, self.input_min, self.input_max)
+121:         transformed_action = (action - self.action_input_transform) * self.action_scale + self.action_output_transform
+122: 
+123:         return transformed_action
+124: 
+125:     def update(self, force=False):
+126:         """
+127:         Updates the state of the robot arm, including end effector pose / orientation / velocity, joint pos/vel,
+128:         jacobian, and mass matrix. By default, since this is a non-negligible computation, multiple redundant calls
+129:         will be ignored via the self.new_update attribute flag. However, if the @force flag is set, the update will
+130:         occur regardless of that state of self.new_update. This base class method of @run_controller resets the
+131:         self.new_update flag
+132: 
+133:         Args:
+134:             force (bool): Whether to force an update to occur or not
+135:         """
+PRESERVED /root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999 params_exists=True
+PRESERVED /root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_action_only/phase1_exp_b_action_lora/29999 params_exists=True
+PRESERVED /root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_vlm_only/phase1_exp_c_vlm_lora/29999 params_exists=True
+PRESERVED /root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499 params_exists=True

@@ -1,0 +1,120 @@
+INFO:root:# episodes completed so far: 490
+INFO:root:# successes: 447 (91.2%)
+
+ 80%|████████  | 40/50 [07:07<01:32,  9.28s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 41...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 491
+INFO:root:# successes: 448 (91.2%)
+
+ 82%|████████▏ | 41/50 [07:16<01:22,  9.15s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 42...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 492
+INFO:root:# successes: 449 (91.3%)
+
+ 84%|████████▍ | 42/50 [07:26<01:15,  9.39s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 43...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 493
+INFO:root:# successes: 450 (91.3%)
+
+ 86%|████████▌ | 43/50 [07:34<01:03,  9.07s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 44...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 494
+INFO:root:# successes: 451 (91.3%)
+
+ 88%|████████▊ | 44/50 [07:44<00:55,  9.32s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 45...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 495
+INFO:root:# successes: 452 (91.3%)
+
+ 90%|█████████ | 45/50 [07:54<00:47,  9.42s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 46...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 496
+INFO:root:# successes: 453 (91.3%)
+
+ 92%|█████████▏| 46/50 [08:04<00:38,  9.59s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 47...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 497
+INFO:root:# successes: 454 (91.3%)
+
+ 94%|█████████▍| 47/50 [08:13<00:28,  9.38s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 48...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 498
+INFO:root:# successes: 455 (91.4%)
+
+ 96%|█████████▌| 48/50 [08:22<00:18,  9.37s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 49...
+INFO:root:Success: False
+INFO:root:# episodes completed so far: 499
+INFO:root:# successes: 455 (91.2%)
+
+ 98%|█████████▊| 49/50 [08:38<00:11, 11.32s/it][AINFO:root:
+Task: pick up the black bowl on the wooden cabinet and place it on the plate
+INFO:root:Starting episode 50...
+INFO:root:Success: True
+INFO:root:# episodes completed so far: 500
+INFO:root:# successes: 456 (91.2%)
+
+100%|██████████| 50/50 [08:47<00:00, 10.57s/it][A100%|██████████| 50/50 [08:47<00:00, 10.54s/it]
+INFO:root:Current task success rate: 0.82
+INFO:root:Current total success rate: 0.912
+100%|██████████| 10/10 [1:15:53<00:00, 479.02s/it]100%|██████████| 10/10 [1:15:53<00:00, 455.32s/it]
+INFO:root:Total success rate: 0.912
+INFO:root:Total episodes: 500
+Exception ignored in: <function MjRenderContext.__del__ at 0x7f38efc523a0>
+Traceback (most recent call last):
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+    self.gl_ctx.free()
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: INFO:OpenGL.platform.ctypesloader:Failed to load library ( 'libGLU.so.0' ): libGLU.so.0: cannot open shared object file: No such file or directory
+EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f38e34443c0>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f38efd519c0>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f38efd519c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f38efd51640>,
+	),
+	result = 0
+)
+Exception ignored in: <function EGLGLContext.__del__ at 0x7f38efc521f0>
+Traceback (most recent call last):
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+    self.free()
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE, EGL.EGL_NO_SURFACE, EGL.EGL_NO_CONTEXT)
+  File "/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+    raise self._errorClass(
+OpenGL.raw.EGL._errors.EGLError: EGLError(
+	err = EGL_NOT_INITIALIZED,
+	baseOperation = eglMakeCurrent,
+	cArguments = (
+		<OpenGL._opaque.EGLDisplay_pointer object at 0x7f38e34443c0>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f38efd519c0>,
+		<OpenGL._opaque.EGLSurface_pointer object at 0x7f38efd519c0>,
+		<OpenGL._opaque.EGLContext_pointer object at 0x7f38efd51640>,
+	),
+	result = 0
+)
+EVAL_DONE
+EXP_C_EVAL_EXIT 0 2026-11-05T23:30:27+08:00

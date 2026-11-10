@@ -1,0 +1,767 @@
+[
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/preflight-videos/A29999_task2_trial00_success.mp4",
+    "bytes": 51161,
+    "sha256": "deb3ada1430b9f74a3e80258d2a431e2d2864d1e7649397e24b5e451d3e55229"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/preflight-videos/A29999_task4_trial00_success.mp4",
+    "bytes": 65856,
+    "sha256": "3bd806b036ab83b2785fa8c1a197f1faffae2a3b29f2a484dd8127a2e3f279f5"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/preflight-videos/G0_task2_trial00_success.mp4",
+    "bytes": 51711,
+    "sha256": "a50029b9a5c3fe994fb8a12b7bbe36fdd6dea78b1d8fb89ba9cf3c9a04e4fa61"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/preflight-videos/G0_task4_trial00_timeout.mp4",
+    "bytes": 90393,
+    "sha256": "5a2c466618bf95e9b1476d2b99df71f035e205497e012da35c0056600d28fbf0"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/preflight-videos/G1_task2_trial00_success.mp4",
+    "bytes": 49789,
+    "sha256": "66692e3497224259b92d634bd8a003d9c62ed5f1552c4fd6cb374e7bd8a8b970"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/preflight-videos/G1_task4_trial00_timeout.mp4",
+    "bytes": 74828,
+    "sha256": "a37fe159a2fb815b5188961e4822705b6d2f72b8af514abab0d7f5ad1187beba"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/preflight-videos/G2_task2_trial00_success.mp4",
+    "bytes": 51612,
+    "sha256": "63592490f981d50bf75f14953fbf9d6dd23342f7d98e09f54a141ad1f945d6b8"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/preflight-videos/G2_task4_trial00_timeout.mp4",
+    "bytes": 96250,
+    "sha256": "764fefbc3a638d5ffb114926a24cf80e2c144a02a3bbac7153dda5c5a2f6c91e"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task0_trial00_success.mp4",
+    "bytes": 41514,
+    "sha256": "71106321f4d0d8cd0cc96e7852b839a1e97464c01289d2a70808162f7a470cfa"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task1_trial00_success.mp4",
+    "bytes": 49327,
+    "sha256": "e548979ee6fc6505c83fb5d90498d1f150b972827b74481ae256cdcb5e537c14"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task1_trial37_timeout.mp4",
+    "bytes": 93834,
+    "sha256": "f602328692996141451ce1522bd371927a3311fa0e5140e95cd4259c69ff1e0a"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task2_trial00_success.mp4",
+    "bytes": 51257,
+    "sha256": "342088e5e1d7ecb38f3b3f518f75b6b6a6ccb1b92233744034a915344b6f4fff"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task3_trial00_success.mp4",
+    "bytes": 52445,
+    "sha256": "26357dc0950cdedaf109403d9b5034787481b133ada02c6a2e8567f9b52f12be"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task3_trial06_timeout.mp4",
+    "bytes": 109864,
+    "sha256": "f5c2ce593c4fffc53cea3b34e148670f0827af3dfc28593f9007ccd6de9e318c"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task4_trial00_success.mp4",
+    "bytes": 67033,
+    "sha256": "ae671a848a28fc39f5a746ac585a1cad196c848319d843fc6052125cd5b1d3fb"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task4_trial19_timeout.mp4",
+    "bytes": 106591,
+    "sha256": "af595140f37e23953000470ac8d8d5ab6dc45a4b860af15867fa1c0b6493e79a"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task5_trial00_success.mp4",
+    "bytes": 44018,
+    "sha256": "61c88fbf1c6154e46653497d2fc4d443ae2119e5e789ab74ff067925c3116667"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task5_trial02_timeout.mp4",
+    "bytes": 102005,
+    "sha256": "30c2b57c405700ed2b553820ba9c601c7b260a8150df02b6c0da14aa20c7e7da"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task6_trial00_success.mp4",
+    "bytes": 69518,
+    "sha256": "1d3256c465367ea40f3ffc2f67cd858e4cb2495d8f34289dfe9957836f3d8464"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task6_trial34_timeout.mp4",
+    "bytes": 116918,
+    "sha256": "cd8d942a573d05d38e233c087732fca065525670b3a419d43b539e4b17d58e06"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task7_trial00_success.mp4",
+    "bytes": 51538,
+    "sha256": "960efbdd5386e8832b2f9e1d26277eb26719ea634916019977348f9660adfe72"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task8_trial00_success.mp4",
+    "bytes": 49873,
+    "sha256": "77430021d3cdd9e180a6c1682fabb35e5ec4513ce22dfa77aa3abee246867118"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task8_trial44_timeout.mp4",
+    "bytes": 109163,
+    "sha256": "820b9f4074c13efa27ef6773bb4cc54d8f8638a447b66ee7f745e699cd4781d7"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/A29999_task9_trial00_success.mp4",
+    "bytes": 54385,
+    "sha256": "b5519f5cadacff48af7c4ee3f11010f8b4d2de5315aa8c368dc277025593b40e"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task0_trial00_success.mp4",
+    "bytes": 43396,
+    "sha256": "2dfbec51934cbae90dc09f6fb93652e9bf1fe7441fcd870c4dec24a2de1770d8"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task0_trial24_timeout.mp4",
+    "bytes": 102405,
+    "sha256": "be9f9eec3e9562f344f3120149c4616aaa0d8d0757ac0cd50517dc8b5bd4e061"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task1_trial00_timeout.mp4",
+    "bytes": 75461,
+    "sha256": "cb2699917d8d9a8406aec625d8b535dd506306e23a52a902a9881b09d2317705"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task2_trial00_success.mp4",
+    "bytes": 52039,
+    "sha256": "54c94b3e7115b720a6b2b26e4ff76ec48e317567d09273146f4305dc0e750c75"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task3_trial00_success.mp4",
+    "bytes": 56011,
+    "sha256": "e9031af8ce54deec50018296626d274ee933246a65b8db4da039e34712587770"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task3_trial02_timeout.mp4",
+    "bytes": 105377,
+    "sha256": "ca597d5f319e18bb03994cabdaa9e7dfe1c072237bd5a624b62aab54e88d646b"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task4_trial00_timeout.mp4",
+    "bytes": 96348,
+    "sha256": "d4c2ed8c97304fba7c1e395ebaeba6b10fd221e8a11a9f78b70ad265412d6339"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task4_trial06_success.mp4",
+    "bytes": 102908,
+    "sha256": "d28f18381fa5b1d1708fb9fd0696575725c2731804634e6cab47c9225067070c"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task5_trial00_timeout.mp4",
+    "bytes": 77223,
+    "sha256": "246dd20f49ffa06ebd9af734ca4e6106e824eff0fbdcfa6ff149143704451aea"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task5_trial06_success.mp4",
+    "bytes": 84388,
+    "sha256": "e99c014ddddc1dcdf9c780624a89555d95fef091cf5d485aeda4cd9aeade8796"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task6_trial00_success.mp4",
+    "bytes": 79269,
+    "sha256": "cb02de282f6481de232ae8fe73e234b6a1f78fd1b82fed5447dbb2de229a30c2"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task6_trial07_timeout.mp4",
+    "bytes": 118119,
+    "sha256": "272b47befdf3a22e56e654ac9c0fadedbf1195b1bb7d51a7fd62e72be84c8c22"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task7_trial00_success.mp4",
+    "bytes": 81670,
+    "sha256": "c0ea832628c01a2ad2b81b3b555d6e7307861b6de23edcdad6b5d9474eb7b24e"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task7_trial10_timeout.mp4",
+    "bytes": 71248,
+    "sha256": "91a2f78449d25c4af70231c8cf737786dabd176198ad4acc566e57c097346e3a"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task8_trial00_timeout.mp4",
+    "bytes": 96314,
+    "sha256": "c202cf60362e86b21e8dace2e0a0b2b6945575d840cf77623ebe8a56b925ae63"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task8_trial03_success.mp4",
+    "bytes": 88048,
+    "sha256": "41c746890a650591d9784f2df6fb1239f905e9039d1932a63f7ef0813501d333"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G0_task9_trial00_timeout.mp4",
+    "bytes": 76226,
+    "sha256": "b5d927ff2b0459505db9d150131334becf5321fc5eb43298834c7cddb7d8c8a1"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task0_trial00_success.mp4",
+    "bytes": 43509,
+    "sha256": "edf09db6f952716545dd4ab61aa2753696e3f1b42cbc0c1d6c3bf3ce40873f90"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task1_trial00_timeout.mp4",
+    "bytes": 93905,
+    "sha256": "c11dead5ca3ffbb0fea92ce3b8125cae14eb1553df52da0bf472e540a07040c2"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task1_trial14_success.mp4",
+    "bytes": 82253,
+    "sha256": "e6de4aed034d6cf871313ea7be2d1994ca0f886d203ff15fb382ea954e975e8b"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task2_trial00_success.mp4",
+    "bytes": 50415,
+    "sha256": "9db2b09c09665fb44a4a3c1f034a4f173aea24f7ac601e7f44a576a938f4e797"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task2_trial02_timeout.mp4",
+    "bytes": 103927,
+    "sha256": "bc1ac12954efe151c5f953960a48cd31c8956a89c56f26826c4dcf664425b4fa"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task3_trial00_success.mp4",
+    "bytes": 55527,
+    "sha256": "0cbb5a39cbf894942ecc1663de760426052c4c8c0a7098587fedd1bc5af93d0c"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task3_trial01_timeout.mp4",
+    "bytes": 106273,
+    "sha256": "eae8c29f4fa4e57c61d43c3a15e8147897e442637fc165447d0992712c09fa79"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task4_trial00_timeout.mp4",
+    "bytes": 80033,
+    "sha256": "55a03be9b1611f28b42e5fce210719fd061a1b9c6755bf29bca0d28bd70db004"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task5_trial00_timeout.mp4",
+    "bytes": 74915,
+    "sha256": "97c6d556f5689cbd705575877706b2e2da3e7f0ad81b0bb2ca3ca695a3d230b0"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task5_trial01_success.mp4",
+    "bytes": 52188,
+    "sha256": "b7fb5cc529182e632a445d0c30a7cc7bdba80b48cecd9143e92b6886d8a53352"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task6_trial00_success.mp4",
+    "bytes": 98908,
+    "sha256": "62fe7b59d068969c87a18970ae84287402189bf08275a2e29cdb18eca0a8533a"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task6_trial09_timeout.mp4",
+    "bytes": 113162,
+    "sha256": "ea0f55bcc52c11ab9fa516cbe0cb563870567deecfc19e8423395a3b5a39b0fb"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task7_trial00_success.mp4",
+    "bytes": 57570,
+    "sha256": "e649532ad8e5e65b0b2ea20d7c316f90c916474a96b04386f5ce0c6b2f3bd07f"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task7_trial29_timeout.mp4",
+    "bytes": 69533,
+    "sha256": "985e02893d5659112ad1ecef4398a221e81feb5fbb3b2945c4756965bc7ffd92"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task8_trial00_timeout.mp4",
+    "bytes": 94191,
+    "sha256": "dfef75d7f932482ecd12c9d187ec3a8dd04dfd8b657c203351a610c78a4ecec3"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task8_trial01_success.mp4",
+    "bytes": 104956,
+    "sha256": "8bfbce3e38ae705368514424052a4b2625dde5018b13b6211acc17e3e23a3b2d"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G1_task9_trial00_timeout.mp4",
+    "bytes": 70125,
+    "sha256": "2bcecbf2cfb4860da58cdbfff0e2d54d64015d89003875b4f75d10dfa28b5162"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task0_trial00_timeout.mp4",
+    "bytes": 99923,
+    "sha256": "e41e83911dbd66986d2a717b9d92b8d261072df0bfa503fbb54972da28089fc8"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task0_trial01_success.mp4",
+    "bytes": 83092,
+    "sha256": "d30dbdb71e86ccea5184ab6f41a2e4e07e2b9886b3abc487ad37789255b581f1"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task1_trial00_timeout.mp4",
+    "bytes": 88381,
+    "sha256": "e25a92fd6d168051ae5036d2d5cf84802c6f52c3d1351e2bb9b76adbf8da8ea8"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task2_trial00_success.mp4",
+    "bytes": 51570,
+    "sha256": "89c229ce97f926ac9fa16ce1a609d9e6d37aca6ff749b838d2f535c35af1ce26"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task3_trial00_success.mp4",
+    "bytes": 66084,
+    "sha256": "abdc99e8d54084bdf49b8bb09a8b386b8fc66cf84edc66b2ad9ababd5e9985ff"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task3_trial03_timeout.mp4",
+    "bytes": 104797,
+    "sha256": "4ad95b7b732fb022cc35df96a7cb256b4c4e5b0d3c825c41074e254e69445f3c"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task4_trial00_timeout.mp4",
+    "bytes": 108351,
+    "sha256": "e00e5606f3df0bc2dc9716c65f23e5dca25a7d7e46d3159e58ef80db941dc8a1"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task4_trial05_success.mp4",
+    "bytes": 90302,
+    "sha256": "b0a3248357ef8c5cc529a12917a54acb3afac19ca6aeb662b6b564acd6aea5d8"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task5_trial00_timeout.mp4",
+    "bytes": 98954,
+    "sha256": "ebf58f1626d0b97e9944167bf0a2816836b8f62a66686cdb93f8b3d084d183f5"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task5_trial03_success.mp4",
+    "bytes": 74260,
+    "sha256": "5901e184dfdeb860d1ef752dc34e4eca834ae8fb4643b2766c967cde3fdcfd8c"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task6_trial00_timeout.mp4",
+    "bytes": 122414,
+    "sha256": "82793fe2fc8f6be4e4bd567e97966b542b57aff9d5edceb2143e107d5e0b0c73"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task6_trial01_success.mp4",
+    "bytes": 95463,
+    "sha256": "13721bb7727339180cc15c95b77d2b328201ccc4bb57e54b50046a50bd7a0cc2"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task7_trial00_success.mp4",
+    "bytes": 57164,
+    "sha256": "534d5d529dd1326df51e2f4f5cf63f7f0482df5ae51f42deac9ebf6956956ef8"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task7_trial28_timeout.mp4",
+    "bytes": 66279,
+    "sha256": "8151495750333be47b4e01be3f07d5da7b48d3839118e7c88579564510f6cb1c"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task8_trial00_timeout.mp4",
+    "bytes": 94022,
+    "sha256": "f173dd576f2588f20202adbbde86a7e5b3910d6441a0c9d13925013162f9c6bc"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task8_trial01_success.mp4",
+    "bytes": 89099,
+    "sha256": "d9d6fb0e41eae36379eb23a46bdccf2cd9205e312a273c78b8682ff672ca3dc4"
+  },
+  {
+    "path": "media/logs/pnp-heldout-spatial-1106104308/videos/G2_task9_trial00_timeout.mp4",
+    "bytes": 74419,
+    "sha256": "077917882b465897e24169fe2ea0632c9401e07fe0dbb4947bd1ef903167f616"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 103288,
+    "sha256": "43f218aaca60a0f50a8eaa75fe44dd9f448923a653231b5e1b84b4eab703a717"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 34796,
+    "sha256": "c55876b730c847f42b286702c69266b0eaeb940ece1381ba5b5a17aaf67001f5"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 91308,
+    "sha256": "9c13cc762cc20e58668358abeedd74e64efaa7ffc572236b8548a71a5989d56f"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_success.mp4",
+    "bytes": 52652,
+    "sha256": "6b5a1076d11568096ceb99e8c18ca2a5a5b973f36c814edf87a86098cf66907c"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 93641,
+    "sha256": "d1a012483f1199591d4eecf0fd85227d444e69b3f583259bbc47edb99e805202"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_success.mp4",
+    "bytes": 78344,
+    "sha256": "fbdbc00d0ccff03d7dadbc8fe4b1a2f7960d637a31910d1e13e63b7997ee0e40"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 117950,
+    "sha256": "db7062bbbd56206a68cddd0ab78bd95e0502139993c41c93235f18a4a931ff96"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_success.mp4",
+    "bytes": 107349,
+    "sha256": "23eb7fc61195a2c5af1a36967ada91f61991abf0d6612c68bec4e457bfdee90a"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 112441,
+    "sha256": "7c72216621daab547c7c16c67e2757f431d7c3b1d7054ca1fa0cfe098ab9071c"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_success.mp4",
+    "bytes": 62263,
+    "sha256": "2616b5841bd4c5b1ed022bb51b563b60b3c96954e6daefcf9bcca13acaa45167"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 67289,
+    "sha256": "a31e4f68a72b6debea28004580de180c03fe4fe4144fe79343e0274f36508a42"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 42247,
+    "sha256": "186211b8b9d14f595cc9428589660fa186d777d79e6272d56cb23d23d141f582"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 95447,
+    "sha256": "17464c1b38f02251c64397f64f5f9cdeea9bef60695537251e69d543e68b0ede"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_success.mp4",
+    "bytes": 46511,
+    "sha256": "0853c61880a919351b7181a55869319f2c7baa6ebee6cd30dcc6836927ce9254"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 86683,
+    "sha256": "769cb9979986d821a3a70d68f9bcafe840dd7b26bca0f83ddf7701ee1457324a"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 44533,
+    "sha256": "ddb8a29c3692f26d322d203dc9ac0f4a517d0cf6019d7de973e1448ef07193ca"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 97975,
+    "sha256": "ee4c013fd650dd56d9f4c0502fff66ef44dfecfc9baa565becfa5b58c3d3970d"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_success.mp4",
+    "bytes": 68626,
+    "sha256": "1771a28da5761c8a670ff7ccfed5fd9bb0b60a6274a0cbdcda59af6bfc31540c"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 105031,
+    "sha256": "46c66095ad91d9e4adb44bc7bd33ee9ff08c1a325db0e29f2d99d3f6c55dda98"
+  },
+  {
+    "path": "media/logs/videos_exp_b_spatial/rollout_pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_success.mp4",
+    "bytes": 80289,
+    "sha256": "729b0bddcacb82f4efc244742cd1dd2b024f77009d9c74effce7147d0856a28f"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 36649,
+    "sha256": "2d02e35b0b64bc486bfb61036ce474bdfec27c4691127a5f0283420cd3644726"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 95393,
+    "sha256": "ab43b6dfe0f77da61c0b835eed306b3177c7262a97492b93747537740c6c32cf"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_success.mp4",
+    "bytes": 53742,
+    "sha256": "07906f495968f39c2993261252e6e0f279df84719814708c474df56fd292b9b4"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 105145,
+    "sha256": "b1273d675dbe76912efe80f326882eab145ac8667132caaa6200ab17e63335f2"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_success.mp4",
+    "bytes": 100558,
+    "sha256": "adfdace6aba6c997cf9b1de55da4bc6e2019cd32ca932a009562d6bc0ead3b9d"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 109081,
+    "sha256": "8a4e9f02109ef2db0865b95ba9727248fdc7c1d4d11bfee9b664e908859ccbfd"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_success.mp4",
+    "bytes": 64029,
+    "sha256": "6c1593d87c870eb7775f676f1cb4cdf8b559fcad6f00a149a8f9d50f4174d552"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 103188,
+    "sha256": "5cd48464d0d9e47fa64bde40d8d6682b3ef01b9614f2a85e45ebbaa6ab8c24ad"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_success.mp4",
+    "bytes": 55064,
+    "sha256": "0ea39d02ca200389035ebefbff1afa61f97d77f3d853dcfe112d0987367615e7"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 73310,
+    "sha256": "4b15d2d90fd505c14fb5e873ba1211d561aee1a2f239144856bf5231100d1aea"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 39543,
+    "sha256": "211334bce9169859829efc54919afd112cb49d85ed2a3aaa537cb1c2e32929b2"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 100528,
+    "sha256": "42f3e30a103ab67f0015b5832668da99caf68ac896ace6db54c44a23906c192b"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_success.mp4",
+    "bytes": 47727,
+    "sha256": "5f646acfaaa09f6211c3636ba4ed5933c000d16d3d0d1d105caf4f59f348a5fd"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 94099,
+    "sha256": "f715cf0e9a1ad04acb7be1304840770e717880eb84b50b4f62050b438fdead4f"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 39440,
+    "sha256": "fd7a4e64b769fd40c2b13db23e0cf849c576e8b669797a013da4ec2d7cb1bf6c"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 93035,
+    "sha256": "8d6e4eb4b01c985ee0a4dcd3154bed20db7a4bbb6a89ffd711f9dafbca639d39"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_success.mp4",
+    "bytes": 53751,
+    "sha256": "e9f855e5cae2725a6185b139639464ad5a5738127261993c006404fff9a8a4a9"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 89055,
+    "sha256": "483b35b293b77d6802bea24de96ab38ea6174e28fe9e553c39d3c2c60612a4ae"
+  },
+  {
+    "path": "media/logs/videos_exp_c_spatial/rollout_pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_success.mp4",
+    "bytes": 48868,
+    "sha256": "52d472327b31bf22d1375629feafd7a5567b71099cae2d2b960ab6146fd9dac9"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 36521,
+    "sha256": "71687197888c62d6ba829dca0f1fa0669aa7a6f2a28c54cde5ac487c2695b499"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_success.mp4",
+    "bytes": 52175,
+    "sha256": "cf3a0277180332bccbdee03da8d4bcb4d8dce2f75a248ad1bad970b523bcd5fc"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_success.mp4",
+    "bytes": 62703,
+    "sha256": "a8fdd5483fda6a5fe919a3480583c6b4ba306db4fb9800cde1c145ccf6f354cf"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_success.mp4",
+    "bytes": 61336,
+    "sha256": "a54dab2cce152c1fa1bf3645b0adb65e0af4dc6c5f7ced58b135dd7de59dda27"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 107733,
+    "sha256": "b1ec2572c6b5a67c68a3a4867c06080bb69322bd0fa2896768600a43e4a01d26"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_success.mp4",
+    "bytes": 47304,
+    "sha256": "4f1e46c282f307beb6639126aa49cd9d697dbbb25bcb7b8af6735271eafe325f"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 85769,
+    "sha256": "6e6ab74cf880710a3da515d78d1363b4d1e98481e4d1af31321de9abcf8952c5"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 42950,
+    "sha256": "f480e12188c8d3044f9efdadbd02e8a28ccb3712bff5de5cd2cc279dff6e7d13"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 104224,
+    "sha256": "eebf7d44440949e76662882c9227fe058d83cd3e27fa7b3ee7065171e40e9ea7"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_success.mp4",
+    "bytes": 50028,
+    "sha256": "4fa58c37e63f49598ebdd3da3ccbfb67deb55cd9e3a2e802345b1165e7273f6b"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 45424,
+    "sha256": "b3d5b3ace2ea0dd3e12160faea80cef9a10e65ad73abcd733e7f17418349153d"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_success.mp4",
+    "bytes": 52037,
+    "sha256": "4db878f69aa8766397e93399306eae66ee140acd7d27864c4ffe4ce2394dbb23"
+  },
+  {
+    "path": "media/logs/videos_phase1_spatial/rollout_pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_success.mp4",
+    "bytes": 49771,
+    "sha256": "40feecbb45d407df0ce66990ea959322619e34a9af5ce74ab16477e025ec8f78"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/A29999_t2_replan5_ep00_ok.mp4",
+    "bytes": 55720,
+    "sha256": "0373753f0043494b2065613e771681c26475d741f9499d98c82c28911c856923"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/A29999_t2_replan5_ep01_ok.mp4",
+    "bytes": 56572,
+    "sha256": "8d73e8810b206bcff66da389def96d6059c63d9ca861987c1bc1e4f5d4ff3739"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/A29999_t2_replan5_ep02_ok.mp4",
+    "bytes": 53088,
+    "sha256": "e81b593af67e5ea186afd7de699b356fc1065a90be40491c1db9ea534343cd30"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/G0_t2_replan5_ep00_ok.mp4",
+    "bytes": 54361,
+    "sha256": "422d395105395c01283f9b28004c07847a10e0c843579926a22764ecb0d5183d"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/G0_t2_replan5_ep01_ok.mp4",
+    "bytes": 54794,
+    "sha256": "6fd8d892179a74de4d313e59f356c29a4b9e050a13cbc0e552ddface0a0286e1"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/G0_t2_replan5_ep02_ok.mp4",
+    "bytes": 50957,
+    "sha256": "7b970f6a14e9bd9bf3b8b9d29fb8bcf1af9136e2225a9607c6d414933d752f3f"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/G1_t2_replan5_ep00_ok.mp4",
+    "bytes": 54698,
+    "sha256": "ec5e00888e9712c33fdc71204aa533a29fe35a574471a227bbed4a067dc33bcd"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/G1_t2_replan5_ep01_ok.mp4",
+    "bytes": 50594,
+    "sha256": "7553b3970e403f2fbad07e7710f3bfd937a6068c835111b42af649c61356af83"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/G1_t2_replan5_ep02_ok.mp4",
+    "bytes": 50137,
+    "sha256": "272317859246c03330df3d2be2e4b64f836534f2f0bc04102b86c8b4e04ee9c0"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/G2_t2_replan10_ep00_ok.mp4",
+    "bytes": 53232,
+    "sha256": "93404093eb03fd85bdbac002cd3dad4960240bfd3c34205c5d5bfe785d255b2c"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/G2_t2_replan10_ep01_ok.mp4",
+    "bytes": 50848,
+    "sha256": "0d61b8283de5184a54036b7b1c436c7e51b8a98d7de712829be6d9454ffeccb8"
+  },
+  {
+    "path": "media/logs/videos_pnp_eval/G2_t2_replan10_ep02_ok.mp4",
+    "bytes": 49572,
+    "sha256": "e55f47e745629ff2b7be335b55584dcaee2727774763c4a883943d200980c2bb"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 39835,
+    "sha256": "1334d877e4d72552999a6dc30ba22d11d3edcfe3753f8fe2ed2bb17f816278d2"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_success.mp4",
+    "bytes": 49749,
+    "sha256": "bff99a14c1e9b30694f8b59f119ccb18bfe4114c58e4bdaf7a9136468056ac97"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 100226,
+    "sha256": "53ed1b1bcc1ca328a943e09f8263b2342f522f25a232fb04633fb5eeb48b84d7"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_success.mp4",
+    "bytes": 60204,
+    "sha256": "5c0680e83f345e9004d1237b0f3421ee336126525da1ab752e0f3f770567be91"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_success.mp4",
+    "bytes": 59709,
+    "sha256": "e98387e5b25a5ce81c524df31fbb09977a91f291c727b70ff68a8aaaf2609130"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_success.mp4",
+    "bytes": 52215,
+    "sha256": "c9013c50430c150212750b95cce34aa7543832f642a34ce7ad274df991215a5a"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 40965,
+    "sha256": "6631f02527b5c67350b8fec97e8eb2c65cf31ceb9e985dc767cf3cbbf4849a14"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 90035,
+    "sha256": "f71653477f67434dd87ff1b04d6e8574f5ad561f8656fa3c5bbdf3b45bdaea8e"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_success.mp4",
+    "bytes": 48145,
+    "sha256": "f5b263e1b14052cabfecf833a56a13d8a2fd20f393199f90699a728a192725e5"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_success.mp4",
+    "bytes": 39496,
+    "sha256": "78d8cc4d27aa842c9b4840b61092703fc37dde4bf6ebcc0409c9fa112fe6a712"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_success.mp4",
+    "bytes": 57901,
+    "sha256": "e225e05ecefab87b67424c4665cb8218af1effaa284824df73407a67b65a4311"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_failure.mp4",
+    "bytes": 97834,
+    "sha256": "2f2e7445b8b196b9f5765421769abd5714750d1842afae0f79629a53bac973df"
+  },
+  {
+    "path": "media/logs/videos_spatial/rollout_pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_success.mp4",
+    "bytes": 52473,
+    "sha256": "2b6362b215f63a087659a70d1a037b7b59ec34bf87960525abc2ebcddf839dba"
+  },
+  {
+    "path": "media/pnp-a-expert-ep0000.mp4",
+    "bytes": 51132,
+    "sha256": "6a82eb24d1c10714b299a10d693715e53dcc8a9145b42c0303b575b8c16d791b"
+  }
+]

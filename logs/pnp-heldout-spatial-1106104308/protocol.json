@@ -1,0 +1,584 @@
+{
+  "schema": 1,
+  "manifest": "/root/autodl-tmp/logs/pnp-heldout-spatial-1106104308/heldout/manifest.json",
+  "manifest_sha256": "e70042f9ecd0fb870d05841569e9f2d3ad73d7533f6f103c3359cb15040f3f08",
+  "groups": {
+    "A29999": {
+      "checkpoint": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999",
+      "config": "pi05_libero_lora",
+      "replan": 5,
+      "params": [
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/_METADATA",
+          "bytes": 33052,
+          "sha256": "88464a384c524c50fa1a92c1685d23a79570c62807a0ccf021f5f9307fff137c"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/_sharding",
+          "bytes": 17773,
+          "sha256": "54899ee3f4d45eee96ddada379a19a9da1324792b141fa0449608620571e6b01"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/array_metadatas/process_0",
+          "bytes": 12891,
+          "sha256": "da5f8952b77ab352fa92e3e58d742bfe0db5b9c1b956212f8279895b9df03721"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/d/966085fe779094c258f8d9587e2d5905",
+          "bytes": 2688,
+          "sha256": "158714d117cbec8afed3f983d050affa224b6d71d855873f7cb79a7d65e2525a"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/manifest.ocdbt",
+          "bytes": 118,
+          "sha256": "b0480ee50d944fedd2d027d2a7f69c2e363d74264f6b6663567a1a8aed2c0b6c"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/00a9dd3db814d42c25b66625a7fcc97a",
+          "bytes": 994171954,
+          "sha256": "fc9fe50409e57ce0ec4841a6f7e898026e2247dbcccd471fc72700d75159373d"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/093291aad1c0a25d9f0ee277e83597da",
+          "bytes": 1428,
+          "sha256": "a3b7664ed2e829792b3d0671534763e480d99869d9fbe4f9a3d4886fba0ea918"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/1654958f3dd039c9177edbda8fb3f7d0",
+          "bytes": 753949523,
+          "sha256": "e4b8338eb509da196715f3bb38843d027b7e4e952b35993af4963f3172c326b9"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/39c41f2cc301ebc368ef7f3bf1bd251f",
+          "bytes": 828933307,
+          "sha256": "5613980391b2cdab9e8341c49b0aaa5bd16824738641949a81490da1c7526b48"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/3aa0dd1bc4c5647e9dcc2eb32dc837a5",
+          "bytes": 213,
+          "sha256": "fff2f8b328c86ab34912c01d5758210df1805bcd73e3709be401d1989b9b18c3"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/4efae26e868ff66fc12095c575c35540",
+          "bytes": 9670,
+          "sha256": "1a1f221d84ad3586b72021bc58cb791cd9d25732c9771dc1787d77cbbcce5a17"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/6210d039bec43a6dfdd1fa0f5c55f729",
+          "bytes": 368475803,
+          "sha256": "85ba85419e030c6e2cdfa44c61c7c008152b96d7625a38d87c0f6fef6eab1517"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/6619c7d551c223aff38304883dc5aaab",
+          "bytes": 35321077,
+          "sha256": "6a347e230a02e2037a16b168daa8c552bd2fd0f07c517cc58a621cd74466a0f7"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/707cb475561adf48eb656c809960b821",
+          "bytes": 58980334,
+          "sha256": "6cb2c9df48d092cab69728509085a365e1fe2f0088d5a1ebbd2df439ea20d0f4"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/842fa2662fda8f7e16901e69b38603e6",
+          "bytes": 945879431,
+          "sha256": "c1c99d226b71104e64ab5bed045fcd8b7b64013c289802ae640a787916b994c2"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/84a87689df17327b9470f3828952a78f",
+          "bytes": 125622164,
+          "sha256": "51d04912fa219412df3667feac1eac87ebbc98b771948f0a313d4e0697e1bb48"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/8e079b48df94cb391b0585a09daad32a",
+          "bytes": 239099102,
+          "sha256": "a0920c3a581e0ef1bc8c15535e9342e1d66bf051b680e93db5ce3eb0523aff65"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/9a74eb2a2b1129de78c403c950ecb039",
+          "bytes": 1891253802,
+          "sha256": "69961bba4e54b38c4869e83b5db3bec4fd2ebc64323f77287ef856425fa5d787"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/c9851adac33eeed1e70cb8a847c45225",
+          "bytes": 93898552,
+          "sha256": "f4bbd083abf3f25779a6e2b4b6678a8cb2136de88a6b40dd591f8f8054485537"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/cb47eb5c5ae9a20a58b28a884d28715c",
+          "bytes": 1376,
+          "sha256": "e43163c6c67941f90156dcc5ae501720f0e0ea0dabfe8651c50b5c3aca84ff33"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/d/fcf056253453b8d5d7d6e6055c17ba89",
+          "bytes": 915,
+          "sha256": "ec70ee4d61d478d6b49ed121aa1e01fb4deffdd29232ed6d33c240890d0276b2"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/params/ocdbt.process_0/manifest.ocdbt",
+          "bytes": 782,
+          "sha256": "7b2b4311879421567f49da6645fd3c2f0221800601b6f999873d6cecdbaa27d9"
+        }
+      ],
+      "normalization": [
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/assets/physical-intelligence/libero/norm_stats.json",
+          "bytes": 1909,
+          "sha256": "7e19abf21b2f8837e1e27c468f4021efe359e38a9f6158acb83b6f978dad6b5a"
+        }
+      ]
+    },
+    "G0": {
+      "checkpoint": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499",
+      "config": "pi05_libero_lora_pnp",
+      "replan": 5,
+      "params": [
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/_METADATA",
+          "bytes": 33052,
+          "sha256": "88464a384c524c50fa1a92c1685d23a79570c62807a0ccf021f5f9307fff137c"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/_sharding",
+          "bytes": 17773,
+          "sha256": "54899ee3f4d45eee96ddada379a19a9da1324792b141fa0449608620571e6b01"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/array_metadatas/process_0",
+          "bytes": 12891,
+          "sha256": "da5f8952b77ab352fa92e3e58d742bfe0db5b9c1b956212f8279895b9df03721"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/d/68f5f31d4e71b04b83390ffca7f8354f",
+          "bytes": 2694,
+          "sha256": "e4f21e9da2df91d4ea5c1cfe4b19fce1b052e29c550d5dc3de6f993b383bd99d"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/manifest.ocdbt",
+          "bytes": 118,
+          "sha256": "39b8cd7a9d9f63b8dd815ac5706e1e4b81f416cc95251bdf1d525e174038d30d"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/01f591a9d9241fb983b44c46fced4fee",
+          "bytes": 69823338,
+          "sha256": "1140010ed8b4270900a5b394a782ac5ddd473246c23685283fcf52173b7e55db"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/0f1b446a5ca448eb02b1185b6ed56586",
+          "bytes": 93886456,
+          "sha256": "db999961c10086c296d2ec5b317199d83bb73108313267768f111e76797f47f6"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/125d6529a6e1dda3d090cc3ed7319b0e",
+          "bytes": 828933318,
+          "sha256": "3df1b6485b598c9ce7fd7c7ed36e82b9da5a6af8293b4d91c5577998191fecb9"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/13993fb906c63d57e16570c15a599f50",
+          "bytes": 1047,
+          "sha256": "992550ff7b445cb381947aee061c70194f20739bae6cd0245710507edf79b985"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/2619f9cc0c7c3ca8437850cfdb66f4f9",
+          "bytes": 213,
+          "sha256": "fff2f8b328c86ab34912c01d5758210df1805bcd73e3709be401d1989b9b18c3"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/4567831e60852aeaa1b2fd7080c269b7",
+          "bytes": 90308178,
+          "sha256": "04b038d35e4cfb7494f8878e862380a6415b4893a7985334f5decd38362b795d"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/4fa63780c76c80947fe10f24e8996c5f",
+          "bytes": 634518417,
+          "sha256": "952229a8c122dd7f066c4193c7829c3f7609e519edf34ebf10c5bfe6f3bd1234"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/52a15119a71ca0dd3ef1ae303f75c9d9",
+          "bytes": 945879437,
+          "sha256": "6a2b5a78f3d1d51024beaf42077b895ac4185b587b9b14c498401f9887479e1e"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/58662485aac315a798a65421c3aee382",
+          "bytes": 73286412,
+          "sha256": "cd3fdabd74cc32b7548e5dd9260a0039a1e64d21fe0efa1fbcdb7c39f35464a5"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/7b7b642a17382f1a8cf19ab1142d5034",
+          "bytes": 1891253807,
+          "sha256": "b74a8c42138cec5ffda21a0e8d0099d36cef8e2408db2b4bea45c3268d68da7f"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/a47fdec031a5f4f4b7ba974e57cc55d6",
+          "bytes": 47227250,
+          "sha256": "4470953c790ba705ecf304dc3e5e52dd5df6dc64ded375aae4bdb4a35da42226"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/b1c25f161d7fde817446fedea0ac2ef4",
+          "bytes": 1376,
+          "sha256": "e43163c6c67941f90156dcc5ae501720f0e0ea0dabfe8651c50b5c3aca84ff33"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/c91d5e27685c0ec3e384929a6eafb075",
+          "bytes": 994171183,
+          "sha256": "e16837eb6fa21324966942eef837b8a770a86f5b9d684fec6ca86c017b92f824"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/f6278f485fcce3cca882a15af718dc63",
+          "bytes": 88705623,
+          "sha256": "50e183b9a938f1dd877dabb3669fd0aa822ba4f8c3fe91c9d16e102064e02a83"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/fdda3216815500c35113ba1b7f0f5cc4",
+          "bytes": 577587143,
+          "sha256": "c5ff58f5ff6fb634a730d8c7bd40682eddc019287ade0b6909c5d1ba38624bd0"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/manifest.ocdbt",
+          "bytes": 753,
+          "sha256": "43d8396cdc57e8ca980d4f9ff81f89d6896cb002854acabc65ae9993965b84a9"
+        }
+      ],
+      "normalization": [
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/assets/local/pnp_policy_spatial_center/norm_stats.json",
+          "bytes": 2012,
+          "sha256": "7c9ed137ed61140619cd0f839993711251d9fb117f064ee7a0c2f5e854f03f6a"
+        }
+      ]
+    },
+    "G1": {
+      "checkpoint": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499",
+      "config": "pi05_libero_lora_pnp",
+      "replan": 5,
+      "params": [
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/_METADATA",
+          "bytes": 33052,
+          "sha256": "88464a384c524c50fa1a92c1685d23a79570c62807a0ccf021f5f9307fff137c"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/_sharding",
+          "bytes": 17773,
+          "sha256": "54899ee3f4d45eee96ddada379a19a9da1324792b141fa0449608620571e6b01"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/array_metadatas/process_0",
+          "bytes": 12891,
+          "sha256": "da5f8952b77ab352fa92e3e58d742bfe0db5b9c1b956212f8279895b9df03721"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/d/ec30ffd9b092add378949cb791f0fa9e",
+          "bytes": 2700,
+          "sha256": "cbbf3a26e96024b4e581998f4181737e8f793424b2f2c8b4dfd69c0251314041"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/manifest.ocdbt",
+          "bytes": 118,
+          "sha256": "988ec818fad68db51dfe31f915faa4cdbb70009c256ab5b2ac4a391dee96758c"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/043c4d0050677c4562b70d95a294b3a3",
+          "bytes": 88576954,
+          "sha256": "12a7a73ef086fcdf8e8e5531def80733a2fe575b1ddd5ad000f4592ae95beeb3"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/1449502c9ea60c239d80ae24bcbb5930",
+          "bytes": 235536882,
+          "sha256": "602551304b270205e3167eb1857334a267646ca75ed64c599753a56f8f1f192c"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/1a5e3ac5e650d469801e0ee6ed5e656b",
+          "bytes": 994170921,
+          "sha256": "4d548e531f5daa2080f3445f7edaa4f3f2bc06e719ad1446ce7f5363025c0b28"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/22ad51a200f1642c7a930f01f1426c94",
+          "bytes": 945879455,
+          "sha256": "fc729164a35d4293b032eedd8553f501b5cc2035641d8319c12e14db2cd766ec"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/2f7e7b435b292daa65fea2a6bbd6abde",
+          "bytes": 59108993,
+          "sha256": "9ba1dcd4276ba44adfee1e2be1aac8e6ad47a70b49a81ce26ecd8580c10d0195"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/3f0d6469fa1c4a01a453deaed3cf390b",
+          "bytes": 298176849,
+          "sha256": "da782f6461427172b8e187e6f62cbc0abbccecb7fcdb3c98b9a5a893f998fb84"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/4861358747156c8cdfd96a4c6da63b62",
+          "bytes": 1197,
+          "sha256": "c72c71f69d223698c386864b350af5650afa0d1877f5474ad99987648f7f2c95"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/582bc945fc4623e16311a0606da022ad",
+          "bytes": 1315,
+          "sha256": "b0215d382548dc9cc3173f906691306c333d3d3db9b7ed2b785dd770fd941273"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/5ab3fe82b8a7f3fef873128477baffb7",
+          "bytes": 1891253818,
+          "sha256": "0caddcf662a11bc74ebd0626e209bc369ec1a224d4602062d3daae6cd13ef665"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/6ebcf43b7ee597213e1b3d324e63189d",
+          "bytes": 768698732,
+          "sha256": "f64548965b31095cc9a7406ad044612995e00ea6249a642095d6c05fdb0ee026"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/87e651381fad6fb94ee728d3ad182793",
+          "bytes": 213,
+          "sha256": "fff2f8b328c86ab34912c01d5758210df1805bcd73e3709be401d1989b9b18c3"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/9153e372747f3e3ddff59a9666db88ae",
+          "bytes": 87273841,
+          "sha256": "af2527086d78e177179c379c3080b7d6eac536202096916f708b16b548b4c72e"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/b03fa6321c979e7de39aecb242dcd66b",
+          "bytes": 828933325,
+          "sha256": "53cd0b408bac6289200cce34f6e0574b18c7b3805af3e574d95587984d292c59"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/d6e19ab2d4ea1b70e9971c75856c4b88",
+          "bytes": 37514987,
+          "sha256": "93dc6bce25be2a2b92b33c6f6f8a2b2b5f8a7e61f15204abfe42415f1665e78b"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/ddd17f192fa3f9f802c6cff1a1b3af4a",
+          "bytes": 74990731,
+          "sha256": "d8b5063e69a0b33e16b0d5192a52e316b19db0b5be9aee20e156e8bbd781f03f"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/d/df2a4b8f0e8a8bf233debf1717a20223",
+          "bytes": 25467592,
+          "sha256": "34504d8a36dc40a9a37620042e906fd65ccea5783d471c19d851fa44a910ae6f"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/params/ocdbt.process_0/manifest.ocdbt",
+          "bytes": 807,
+          "sha256": "f20f171440ad48dd67815ef670b31e67a3465ec1fb54e299722ea722066a4792"
+        }
+      ],
+      "normalization": [
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/assets/local/pnp_policy_spatial_center/norm_stats.json",
+          "bytes": 2012,
+          "sha256": "7c9ed137ed61140619cd0f839993711251d9fb117f064ee7a0c2f5e854f03f6a"
+        }
+      ]
+    },
+    "G2": {
+      "checkpoint": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499",
+      "config": "pi05_libero_lora_pnp",
+      "replan": 10,
+      "params": [
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/_METADATA",
+          "bytes": 33052,
+          "sha256": "88464a384c524c50fa1a92c1685d23a79570c62807a0ccf021f5f9307fff137c"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/_sharding",
+          "bytes": 17773,
+          "sha256": "54899ee3f4d45eee96ddada379a19a9da1324792b141fa0449608620571e6b01"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/array_metadatas/process_0",
+          "bytes": 12891,
+          "sha256": "da5f8952b77ab352fa92e3e58d742bfe0db5b9c1b956212f8279895b9df03721"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/d/68f5f31d4e71b04b83390ffca7f8354f",
+          "bytes": 2694,
+          "sha256": "e4f21e9da2df91d4ea5c1cfe4b19fce1b052e29c550d5dc3de6f993b383bd99d"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/manifest.ocdbt",
+          "bytes": 118,
+          "sha256": "39b8cd7a9d9f63b8dd815ac5706e1e4b81f416cc95251bdf1d525e174038d30d"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/01f591a9d9241fb983b44c46fced4fee",
+          "bytes": 69823338,
+          "sha256": "1140010ed8b4270900a5b394a782ac5ddd473246c23685283fcf52173b7e55db"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/0f1b446a5ca448eb02b1185b6ed56586",
+          "bytes": 93886456,
+          "sha256": "db999961c10086c296d2ec5b317199d83bb73108313267768f111e76797f47f6"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/125d6529a6e1dda3d090cc3ed7319b0e",
+          "bytes": 828933318,
+          "sha256": "3df1b6485b598c9ce7fd7c7ed36e82b9da5a6af8293b4d91c5577998191fecb9"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/13993fb906c63d57e16570c15a599f50",
+          "bytes": 1047,
+          "sha256": "992550ff7b445cb381947aee061c70194f20739bae6cd0245710507edf79b985"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/2619f9cc0c7c3ca8437850cfdb66f4f9",
+          "bytes": 213,
+          "sha256": "fff2f8b328c86ab34912c01d5758210df1805bcd73e3709be401d1989b9b18c3"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/4567831e60852aeaa1b2fd7080c269b7",
+          "bytes": 90308178,
+          "sha256": "04b038d35e4cfb7494f8878e862380a6415b4893a7985334f5decd38362b795d"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/4fa63780c76c80947fe10f24e8996c5f",
+          "bytes": 634518417,
+          "sha256": "952229a8c122dd7f066c4193c7829c3f7609e519edf34ebf10c5bfe6f3bd1234"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/52a15119a71ca0dd3ef1ae303f75c9d9",
+          "bytes": 945879437,
+          "sha256": "6a2b5a78f3d1d51024beaf42077b895ac4185b587b9b14c498401f9887479e1e"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/58662485aac315a798a65421c3aee382",
+          "bytes": 73286412,
+          "sha256": "cd3fdabd74cc32b7548e5dd9260a0039a1e64d21fe0efa1fbcdb7c39f35464a5"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/7b7b642a17382f1a8cf19ab1142d5034",
+          "bytes": 1891253807,
+          "sha256": "b74a8c42138cec5ffda21a0e8d0099d36cef8e2408db2b4bea45c3268d68da7f"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/a47fdec031a5f4f4b7ba974e57cc55d6",
+          "bytes": 47227250,
+          "sha256": "4470953c790ba705ecf304dc3e5e52dd5df6dc64ded375aae4bdb4a35da42226"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/b1c25f161d7fde817446fedea0ac2ef4",
+          "bytes": 1376,
+          "sha256": "e43163c6c67941f90156dcc5ae501720f0e0ea0dabfe8651c50b5c3aca84ff33"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/c91d5e27685c0ec3e384929a6eafb075",
+          "bytes": 994171183,
+          "sha256": "e16837eb6fa21324966942eef837b8a770a86f5b9d684fec6ca86c017b92f824"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/f6278f485fcce3cca882a15af718dc63",
+          "bytes": 88705623,
+          "sha256": "50e183b9a938f1dd877dabb3669fd0aa822ba4f8c3fe91c9d16e102064e02a83"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/d/fdda3216815500c35113ba1b7f0f5cc4",
+          "bytes": 577587143,
+          "sha256": "c5ff58f5ff6fb634a730d8c7bd40682eddc019287ade0b6909c5d1ba38624bd0"
+        },
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/params/ocdbt.process_0/manifest.ocdbt",
+          "bytes": 753,
+          "sha256": "43d8396cdc57e8ca980d4f9ff81f89d6896cb002854acabc65ae9993965b84a9"
+        }
+      ],
+      "normalization": [
+        {
+          "path": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/assets/local/pnp_policy_spatial_center/norm_stats.json",
+          "bytes": 2012,
+          "sha256": "7c9ed137ed61140619cd0f839993711251d9fb117f064ee7a0c2f5e854f03f6a"
+        }
+      ]
+    }
+  },
+  "group_order": [
+    "A29999",
+    "G0",
+    "G1",
+    "G2"
+  ],
+  "task_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "seed": 7,
+  "task_suite_name": "libero_spatial",
+  "trials_per_task": 50,
+  "max_steps": 220,
+  "num_steps_wait": 10,
+  "resize_size": 224,
+  "render_resolution": 256,
+  "action_horizon": 10,
+  "state_contract": "eef_pos(3)+eef_quat_xyzw(4)+gripper_qpos[0](1)",
+  "rng": "each request sets jax.random.key(uint32 little-endian SHA256('7:task_id:state_hash:control_step')[:4]); identical across groups/retries",
+  "success": "env.check_success() after every control step",
+  "timeout": "220 control steps exhausted => task failure; service/walltime exceptions => unscored execution error",
+  "trial_wall_deadline_seconds": 600,
+  "retries": "no automatic retries; error gate before same-identity retry; completed results immutable",
+  "generated_states_disclosure": {
+    "0": 0,
+    "1": 0,
+    "2": 31,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0
+  },
+  "eval_scripts_sha256": {
+    "eval_libero_task.py": "b580728e4c2af02d1ebb85e05c1a8e3777b4be38c5ce6443ca62f6d46e9a38fc",
+    "pnp_heldout_eval.py": "e8d6e54b4db6e0b38b6e8fd1be8a80a690179de6ca348220f8bcc6f513db151b",
+    "build_pnp_heldout.py": "fcbcc631ae9532e2b893c74d6418cc9eb3e8fee77d473fce9e4ef80b26911f11",
+    "serve_pnp_heldout.py": "2046dfd9486d451e46ec375533d172234f9762603c9c3e30e048f0d76a5e3252",
+    "freeze_pnp_heldout.py": "2eac3558c4a577bce290252d3fde034b48e18ba34869243728712257c9950c0d",
+    "summarize_pnp_heldout.py": "48dc78e9c97da4b357114b8114cc3ea9691dbd18ac7f16cd02cc4166dcf2cfc1",
+    "103-pnp-heldout-spatial.sh": "80fb9f09bb2fb81b578a6e3a1ede043a009acca9a4ec77c89c47c0ab9da81991"
+  },
+  "source_files": [
+    {
+      "path": "/root/autodl-tmp/openpi/src/openpi/training/config.py",
+      "sha256": "aeb27c0d6d8e390d28ae9e32e1b47ae57e343684fdebda2fc1835e9618e26508"
+    },
+    {
+      "path": "/root/autodl-tmp/openpi/src/openpi/policies/policy.py",
+      "sha256": "a2ac5236e23b11d0f5a840d4a8fef148d89dba921d5452ec5dfcd5a6ffa46f20"
+    },
+    {
+      "path": "/root/autodl-tmp/openpi/src/openpi/policies/policy_config.py",
+      "sha256": "aaf42ab04a33b6c91d2447926211646c33ebd8ebfa427f026d7b6c4f7c45ec52"
+    },
+    {
+      "path": "/root/autodl-tmp/openpi/src/openpi/models/pi0.py",
+      "sha256": "24b32d7c6ed5e409459afa8ca5af96a4dae09c2dcdf48e828907e411f4f12342"
+    },
+    {
+      "path": "/root/autodl-tmp/openpi/src/openpi/policies/libero_policy.py",
+      "sha256": "d8679d99facc3fef48da07406081b20709ed872fcefdf7de67ede99422d623fa"
+    },
+    {
+      "path": "/root/autodl-tmp/openpi/examples/libero/main.py",
+      "sha256": "d53748c95804ada559e3ca867305b8f755d8651c4c7f4e2723ef80aea55a3943"
+    },
+    {
+      "path": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/envs/env_wrapper.py",
+      "sha256": "a782fb76c9792268d28979474fe72849e1e98ada49c8e997a65359a8d6b6acd0"
+    }
+  ],
+  "official_config_evidence": "logs/pnp-config-evidence.txt (installed source snapshot); G0 internal control with some official hyperparameters, not official benchmark",
+  "limitations": [
+    "held-out only relative to the 31 PnP collection attempts",
+    "nonofficial 3+4+1 state contract retained by prior gate approval",
+    "G0/G1 training sample exposure and RNG paths differ",
+    "A differs in fine-tuning data and normalization",
+    "G2 synchronous replan only, no asynchronous RTC"
+  ]
+}

@@ -1,0 +1,253 @@
+<cursor_untrusted_data_1337 source="ReadCanvas">
+
+Canvas "π0.5 微调计划书" ([私人链接已移除]):
+
+import {
+  Page,
+  Section,
+  Text,
+  Callout,
+  Steps,
+  Table,
+  Checklist,
+  BulletList,
+  NumberedList,
+  Properties,
+  TableOfContents,
+  Diagram,
+} from "grok/canvas";
+
+export default function App() {
+  return (
+    <Page
+      title="π0.5 微调计划书"
+      summary="基于 π0 微调经验整理的 π0.5 启动前计划：只定范围、顺序与闸门，不启动训练或适配改动。"
+      lang="zh-Hans"
+      width="column"
+    >
+      <TableOfContents
+        items={[
+          { label: "目标与边界", id: "scope" },
+          { label: "继承经验（必须遵守）", id: "lessons" },
+          { label: "π0 → π0.5 迁移核对", id: "migrate" },
+          { label: "实施阶段", id: "phases" },
+          { label: "开训前闸门", id: "gates" },
+          { label: "评价与归因", id: "eval" },
+          { label: "交付物", id: "deliverables" },
+          { label: "待你拍板", id: "decisions" },
+        ]}
+      />
+
+      <Section heading="目标与边界" id="scope">
+        <Callout tone="info" lead="本文件状态">
+          仅计划书。不表示 π0.5 已适配，不启动训练、不改代码、不推仓。开干需你明确确认后再交给执行侧走门禁。
+        </Callout>
+        <Properties
+          items={[
+            { label: "目标", value: "在选定机器人与任务上，跑通官方兼容的 π0.5 最小闭环：数据契约 → 推理 → 简单基线微调 → 分层验收" },
+            { label: "非目标（本轮）", value: "同时改数据/损失/控制参数；把 candidate999 改名当 π0.5；直接上 RTC；宣称相对 π0 的模型单独增益" },
+            { label: "输入依据", value: "2026-11-02《从本次 π0 微调到下一次 π0.5 微调：经验总结》" },
+            { label: "上游参考", value: "openpi@215abfb…；正式开干前再锁定实际 commit 与 JAX/PyTorch 路径" },
+          ]}
+        />
+      </Section>
+
+      <Section heading="继承经验（必须遵守）" id="lessons">
+        <NumberedList
+          items={[
+            "先写清数据契约（采样时刻、动作语义、关节顺序/单位、夹爪、绝对/增量、间隔），再谈超参",
+            "按父布局/父轨迹划分 train/val/test；覆盖表驱动补采，不堆相关帧",
+            "教师平滑 ≠ 策略闭环平滑；专家 jerk 不能代替模型执行指标",
+            "归一化与权重同版本绑定；审计变换后分布；JSON 相同 ≠ 字节相同",
+            "显存做真实 probe（编译 vs 稳态），不照抄 8×2",
+            "核对真实可训练参数树与梯度；先官方兼容基线，再加自定义损失",
+            "分层诊断：模型预测 / 执行调度 / 物理接触",
+            "分别记录物理 jerk、任务停滞、墙钟控制间隔与推理等待",
+            "模型改进与阻尼/控制器改进分开归因；对照时先固定控制器",
+          ]}
+        />
+      </Section>
+
+      <Section heading="π0 → π0.5 迁移核对" id="migrate">
+        <Table
+          columns={["检查项", "π0 现状", "π0.5 计划动作"]}
+          rows={[
+            ["初始权重", "v6 / candidate999 系", "选用真正兼容的 π0.5 checkpoint，禁止改名冒充"],
+            ["状态输入", "连续状态投影", "跟随选定配置（默认离散；任务可覆盖）"],
+            ["时间条件", "状态/动作时间投影", "adaRMSNorm；核对 time_mlp_*，不照搬旧冻结规则"],
+            ["token 预算", "默认约 48", "默认约 200；以实测长度/显存为准"],
+            ["适配与元数据", "banana_config 强制 pi05=False", "独立真实 π0.5 配置与校验，不伪装成 π0"],
+            ["RTC", "明确拒绝 π0.5", "先基础推理；RTC 单独移植与验证"],
+            ["工程参数", "ROI/100步块/滤波/2×阻尼等", "仅作候选，π0.5 上重测，不作默认"],
+          ]}
+        />
+        <Text>
+          旧六布局已在 π0 上反复用过，不能改名当作 π0.5 全新独立测试集。
+        </Text>
+      </Section>
+
+      <Section heading="实施阶段" id="phases">
+        <Diagram
+          direction="vertical"
+          nodes={[
+            { id: "p0", label: "P0 定任务", detail: "机器人/相机/成功判定", kind: "terminal" },
+            { id: "p1", label: "P1 最小推理", detail: "π0.5 真观测→动作", kind: "box" },
+            { id: "p2", label: "P2 数据审计", detail: "对齐/归一化/划分", kind: "box" },
+            { id: "p3", label: "P3 小 probe", detail: "可训练范围+显存", kind: "box" },
+            { id: "g", label: "开训闸门", detail: "预检全过才训练", kind: "decision" },
+            { id: "p4", label: "P4 简单基线", detail: "官方兼容目标", kind: "box" },
+            { id: "p5", label: "P5 闭环诊断", detail: "先训布局再验证", kind: "box" },
+            { id: "p6", label: "P6 对照交付", detail: "冻结标准+回退", kind: "terminal" },
+          ]}
+          edges={[
+            { from: "p0", to: "p1" },
+            { from: "p1", to: "p2" },
+            { from: "p2", to: "p3" },
+            { from: "p3", to: "g" },
+            { from: "g", to: "p4", label: "通过" },
+            { from: "p4", to: "p5" },
+            { from: "p5", to: "p6" },
+          ]}
+        />
+        <Steps
+          steps={[
+            {
+              title: "P0 固定任务与评价",
+              detail: "机器人/控制器、相机、动作语义、成功与超时、数据划分规则写进一页契约",
+            },
+            {
+              title: "P1 跑通 π0.5 最小推理",
+              detail: "真观测生成维度与数值正确的动作；训练/推理变换一致；暂不碰 RTC",
+            },
+            {
+              title: "P2 完成数据审计",
+              detail: "抽查整条 episode 与阶段边界；对齐、归一化往返、padding、父布局隔离",
+            },
+            {
+              title: "P3 真实小 probe",
+              detail: "预期模块有限非零梯度；显存峰值、稳态吞吐、ckpt 写入与磁盘余量",
+            },
+            {
+              title: "P4 训练简单基线",
+              detail: "官方兼容目标；不同时加多项自定义；预算由 probe 与早期验证决定",
+            },
+            {
+              title: "P5 先训布局闭环，再验证",
+              detail: "少量训练布局成功≠泛化；最终测试集不用于调参",
+            },
+            {
+              title: "P6 按失败阶段单因素改动并交付",
+              detail: "抓不起→覆盖/接近/闭合；会放不放→执行/接触；间隔长→推理/调度；保留录像与回退",
+            },
+          ]}
+        />
+      </Section>
+
+      <Section heading="开训前闸门" id="gates">
+        <Callout tone="warning" lead="任一失败先停">
+          模型/资产不匹配、非有限数据、episode 串接、数据泄漏、可训练范围不符、显存/存储不足、Parquet 损坏：停在预检修复，不开长训。
+        </Callout>
+        <Checklist
+          items={[
+            { text: "上游 commit、后端、真实 π0.5 权重与配置相互匹配", done: false },
+            { text: "图像/状态/动作对齐；单位、顺序、绝对/增量、夹爪语义明确", done: false },
+            { text: "train/val/test 按父布局隔离；统计只用训练侧", done: false },
+            { text: "归一化经变换审计；checkpoint 与资产版本绑定", done: false },
+            { text: "可训练参数与梯度检查通过；不复制旧 π0 投影冻结规则", done: false },
+            { text: "真实 probe：显存、稳态速度、形状、磁盘余量已记录", done: false },
+            { text: "对照设计：初始化/预算/采样/控制器明确；一次只改一个因素", done: false },
+            { text: "完整闭环成功条件有效；不拿 loss 或局部释放代替任务成功", done: false },
+            { text: "物理运动、阶段进度、控制间隔、推理等待分项记录", done: false },
+            { text: "选中与回退 ckpt、匹配资产、验收与失败诊断可追溯", done: false },
+          ]}
+        />
+      </Section>
+
+      <Section heading="评价与归因" id="eval">
+        <BulletList
+          items={[
+            "分开记录：实验验收通过 vs 使用选择（沿用 π0 做法）",
+            "比较 π0 vs π0.5 模型时先固定控制器与执行方式",
+            "阻尼/滤波若要研究，另开模型×控制的组合实验",
+            "OOD / 位置朝向失败优先补覆盖，不规定未验证的最低演示条数",
+            "当前运行参考：candidate999 + 2×手腕阻尼；典型 jerk −16.4% 未达冻结 20% 门槛，属使用选择",
+          ]}
+        />
+      </Section>
+
+      <Section heading="交付物" id="deliverables">
+        <BulletList
+          items={[
+            "任务与数据契约一页（含覆盖表）",
+            "π0.5 独立配置 + 元数据校验通过记录",
+            "最小推理烟测日志与动作形状核对",
+            "数据审计报告（对齐/归一化/划分）",
+            "probe 表（显存、吞吐、可训练模块）",
+            "基线训练配置、ckpt、归一化资产版本绑定",
+            "闭环验收：成功数、失败阶段、录像、分项运动与时延指标",
+            "若进入执行：走 ds-gpt-gate；结果推 GitHub；由汇报侧汇总",
+          ]}
+        />
+      </Section>
+
+      <Section heading="公开评估基准（检索）" id="public-eval">
+        <Text>
+          公开可复现的 π0.5 数字主要在 LIBERO，不是你们当前抓放运输任务。任务内对照仍应以自建冻结标准为准。
+        </Text>
+        <Table
+          columns={["来源", "设定", "数字"]}
+          rows={[
+            ["openpi LIBERO README", "pi05_libero @ 30k；ckpt gs://openpi-assets/checkpoints/pi05_libero", "Spatial 98.8 / Object 98.2 / Goal 98.0 / LIBERO-10 92.4；均 96.85"],
+            ["Bifrost 复现", "同公开 ckpt，约 2000 episode", "均约 96.7；LIBERO-10 单次约 ±1 点噪声"],
+            ["训练数据范围", "HF physical-intelligence/libero", "四套 Spatial/Object/Goal/10；不含 LIBERO-90"],
+            ["评价协议要点", "LIBERO 固定初始态；Docker 评测流程", "每 suite 约 10 任务 × 50 init；指标为任务成功轨迹比例"],
+            ["你们 π0 任务内", "同仿真抓放运输最终验收", "candidate999+2×阻尼 12/12；v6 10/12（非公开 LIBERO）"],
+          ]}
+        />
+        <Text>
+          论文 π0.5 另有真实家庭清扫等开放世界评价与附录 rubric，与 LIBERO 数字不可直接互换。详情见 https://github.com/Physical-Intelligence/openpi/blob/main/examples/libero/README.md
+        </Text>
+      </Section>
+
+      <Section heading="P0 任务与评价（草案，待确认）" id="p0-draft">
+        <Callout tone="warning" lead="本阶段已冻结 · 用户要求先不开工">
+          Phase 0：只下载 `pi05_libero`，在 `libero_spatial` 上复现官方评测（对标约 98.8）。确认协议前不开自训；banana 另轨暂停。须用户再次明确授权后才可开门禁。
+        </Callout>
+        <Callout tone="info" lead="训练环境约束">
+          正式微调与 Phase 0 评测复现均在带足够 GPU、可跑 LIBERO Docker 的云端／训练机上完成；执行侧本机只做门禁编排、配置与日志，不承担主训。机型／卡数待用户提供或授权后估算。
+        </Callout>
+        <Properties
+          items={[
+            { label: "阶段", value: "Phase 0 评测复现（非训练）" },
+            { label: "Suite", value: "libero_spatial" },
+            { label: "权重", value: "gs://openpi-assets/checkpoints/pi05_libero/（只推理评测）" },
+            { label: "配置", value: "openpi `pi05_libero` + 官方 Docker／LIBERO client" },
+            { label: "主成功", value: "官方 LIBERO task success" },
+            { label: "通过标准（拟）", value: "协议跑通；Spatial 成功率接近报告值约 98.8（允许合理复现误差）" },
+            { label: "非目标", value: "本阶段不微调、不混遥操、不对标整表 96.85" },
+            { label: "下一步（未授权）", value: "复现通过后，再选 pi05_base 自训或续训＋数据配方" },
+            { label: "banana 抓放", value: "另轨暂停" },
+            { label: "工作流", value: "执行须走 ds-gpt-gate；结果推 GitHub；汇报侧汇总" },
+          ]}
+        />
+      </Section>
+
+      <Section heading="待你拍板" id="decisions">
+        <NumberedList
+          items={[
+            "机器人/仿真栈与控制器基线 — 已确认沿用 π0",
+            "主轨：libero_spatial + 官方 success — 已确认",
+            "确认或改写：父布局划分与测试集是否新建",
+            "上游 openpi commit 与 JAX 或 PyTorch 路径",
+            "Phase 0 权重：pi05_libero 仅评测 — 已确认",
+            "数据：沿用现有演示并重导出，还是按覆盖表补采后再训",
+            "确认本计划后，是否授权执行侧按门禁开干（当前默认：不开）",
+          ]}
+        />
+      </Section>
+    </Page>
+  );
+}
+
+
+</cursor_untrusted_data_1337>

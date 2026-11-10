@@ -1,0 +1,17 @@
+{
+  "trial_id": "A29999:libero_spatial:8:81019f3390b551245d02239afd095f067e986b2ae71a7d3103bb6eedb72d7ca3",
+  "group": "A29999",
+  "task_id": 8,
+  "trial_index": 26,
+  "state_hash": "81019f3390b551245d02239afd095f067e986b2ae71a7d3103bb6eedb72d7ca3",
+  "attempt": 1,
+  "protocol_sha256": "b16e0bf433f132d6a9ceef3a55ac03b54eabc44120d6bd34624e80c5447efe32",
+  "seed": 7,
+  "stage": "formal",
+  "event": "result",
+  "success": true,
+  "outcome": "success",
+  "steps": 94,
+  "video": null,
+  "time_unix": 1793937765.9482656
+}

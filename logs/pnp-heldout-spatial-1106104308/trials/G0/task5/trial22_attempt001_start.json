@@ -1,0 +1,13 @@
+{
+  "trial_id": "G0:libero_spatial:5:757c87c264643206875bdf3e2b53662c8e9a681e08b90a9a20642caaaf5f9002",
+  "group": "G0",
+  "task_id": 5,
+  "trial_index": 22,
+  "state_hash": "757c87c264643206875bdf3e2b53662c8e9a681e08b90a9a20642caaaf5f9002",
+  "attempt": 1,
+  "protocol_sha256": "b16e0bf433f132d6a9ceef3a55ac03b54eabc44120d6bd34624e80c5447efe32",
+  "seed": 7,
+  "stage": "formal",
+  "event": "start",
+  "time_unix": 1793941197.3431907
+}

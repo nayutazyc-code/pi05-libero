@@ -1,0 +1,39 @@
+Phase 1 error gate — 2026-11-03 Asia/Shanghai
+
+Authority: latest user HANDOFF accepts Phase 0 (out-reviewer-011242.md),
+reporter handoff complete; proceed to Phase 1 audit / probe / precheck.
+Earlier Phase 0 STOP entries in executor-status.md are historical.
+
+Read before execution:
+- REQUIREMENTS.md
+- refs/pi05-experience-notes.md
+- refs/pi05-plan-book.canvas.txt
+- existing remote scripts and executor status
+
+Attempt: source ssh-env.example, then use
+ssh-wrapper for read-only remote GPU/disk/process inventory.
+Target: SSH_USER@SSH_HOST:SSH_PORT (existing helper).
+
+Result: exit code 1, before SSH connection establishment.
+Trace excerpt (no credentials):
+  paramiko/client.py, line 358, in connect
+    sock = socket.socket(af, socket.SOCK_STREAM)
+  socket.py, line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+  PermissionError: [Errno 1] Operation not permitted
+
+Current execution policy: network restricted; approval policy never.
+No permission escalation is available in this executor environment.
+This evidence concerns local socket creation; remote host health,
+authentication, GPU, disk and existing processes remain unverified.
+
+No remote command, download, data audit, probe or training was executed
+by this attempt. No training configuration or upstream source was changed.
+Credentials were not printed or copied into repository files.
+
+Gate: ERROR — awaiting 小co / Architect review via existing orchestration.
+Do not start another review cycle or increase review quota here.
+HANDOFF reports one remaining error review; this executor has not invoked it.
+Required resolution: provide the executor an authorized SSH-capable execution
+environment, then resume remote inventory before data downloads or training.
+Phase 0 acceptance remains closed; do not reopen it.

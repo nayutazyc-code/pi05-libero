@@ -1,0 +1,17 @@
+{
+  "trial_id": "G2:libero_spatial:1:e4f513231f79bb165e2d4ce4f327c34a516b96931892d3a65f9461bc62bf8d50",
+  "group": "G2",
+  "task_id": 1,
+  "trial_index": 43,
+  "state_hash": "e4f513231f79bb165e2d4ce4f327c34a516b96931892d3a65f9461bc62bf8d50",
+  "attempt": 1,
+  "protocol_sha256": "b16e0bf433f132d6a9ceef3a55ac03b54eabc44120d6bd34624e80c5447efe32",
+  "seed": 7,
+  "stage": "formal",
+  "event": "result",
+  "success": false,
+  "outcome": "timeout",
+  "steps": 220,
+  "video": null,
+  "time_unix": 1793950266.7155561
+}

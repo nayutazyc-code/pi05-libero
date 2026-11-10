@@ -1,0 +1,50 @@
+{
+  "g0_native": {
+    "run_id": "4h9a2u3f",
+    "source": "/root/autodl-tmp/openpi/wandb/offline-run-20261106_012343-4h9a2u3f/run-4h9a2u3f.wandb",
+    "points": 0,
+    "first": null,
+    "last": null,
+    "log_crosscheck": "passed; rounded log tolerance=0.000051",
+    "note": "Logged interval means, every 50 optimizer updates; last 49 updates not logged. Native G0 and micro16 x2: OOM before first loss; G0 replacement: micro8 x4 effective batch32."
+  },
+  "g0_mb16_failed": {
+    "run_id": "ruooovi7",
+    "source": "/root/autodl-tmp/openpi/wandb/offline-run-20261106_045723-ruooovi7/run-ruooovi7.wandb",
+    "points": 0,
+    "first": null,
+    "last": null,
+    "log_crosscheck": "passed; rounded log tolerance=0.000051",
+    "note": "Logged interval means, every 50 optimizer updates; last 49 updates not logged. Native G0 and micro16 x2: OOM before first loss; G0 replacement: micro8 x4 effective batch32."
+  },
+  "g0": {
+    "run_id": "laea5vht",
+    "source": "/root/autodl-tmp/openpi/wandb/offline-run-20261106_051151-laea5vht/run-laea5vht.wandb",
+    "points": 50,
+    "first": [
+      0,
+      0.08825942128896713
+    ],
+    "last": [
+      2450,
+      0.010119980201125145
+    ],
+    "log_crosscheck": "passed; rounded log tolerance=0.000051",
+    "note": "Logged interval means, every 50 optimizer updates; last 49 updates not logged. Native G0 and micro16 x2: OOM before first loss; G0 replacement: micro8 x4 effective batch32."
+  },
+  "g1": {
+    "run_id": "v6rh1riu",
+    "source": "/root/autodl-tmp/openpi/wandb/offline-run-20261106_012548-v6rh1riu/run-v6rh1riu.wandb",
+    "points": 50,
+    "first": [
+      0,
+      0.11209622770547867
+    ],
+    "last": [
+      2450,
+      0.011964769102633
+    ],
+    "log_crosscheck": "passed; rounded log tolerance=0.000051",
+    "note": "Logged interval means, every 50 optimizer updates; last 49 updates not logged. Native G0 and micro16 x2: OOM before first loss; G0 replacement: micro8 x4 effective batch32."
+  }
+}

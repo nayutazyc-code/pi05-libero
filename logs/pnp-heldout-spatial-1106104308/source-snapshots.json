@@ -1,0 +1,176 @@
+[
+  {
+    "source": "/root/autodl-tmp/datasets/pnp_policy_spatial_center/summary.json",
+    "sha256": "2b44f2efb3e5e1982160cf5e82772ebcdd4bf2e34c9eb344f75bad5f11923753",
+    "bytes": 11559,
+    "local": "source-snapshots/datasets/pnp_policy_spatial_center/summary.json"
+  },
+  {
+    "source": "/root/autodl-tmp/scripts/collect_pnp_policy_expert.py",
+    "sha256": "fd6ac570a3ddc2175b9be8f863bd50d8eda82a1f441838f2fe75bd85054b5a79",
+    "bytes": 6274,
+    "local": "source-snapshots/scripts/collect_pnp_policy_expert.py"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/src/openpi/training/config.py",
+    "sha256": "aeb27c0d6d8e390d28ae9e32e1b47ae57e343684fdebda2fc1835e9618e26508",
+    "bytes": 49543,
+    "local": "source-snapshots/openpi/src/openpi/training/config.py"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/src/openpi/policies/policy.py",
+    "sha256": "a2ac5236e23b11d0f5a840d4a8fef148d89dba921d5452ec5dfcd5a6ffa46f20",
+    "bytes": 5344,
+    "local": "source-snapshots/openpi/src/openpi/policies/policy.py"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/src/openpi/policies/policy_config.py",
+    "sha256": "aaf42ab04a33b6c91d2447926211646c33ebd8ebfa427f026d7b6c4f7c45ec52",
+    "bytes": 4107,
+    "local": "source-snapshots/openpi/src/openpi/policies/policy_config.py"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/src/openpi/models/pi0.py",
+    "sha256": "24b32d7c6ed5e409459afa8ca5af96a4dae09c2dcdf48e828907e411f4f12342",
+    "bytes": 12887,
+    "local": "source-snapshots/openpi/src/openpi/models/pi0.py"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/src/openpi/policies/libero_policy.py",
+    "sha256": "d8679d99facc3fef48da07406081b20709ed872fcefdf7de67ede99422d623fa",
+    "bytes": 4322,
+    "local": "source-snapshots/openpi/src/openpi/policies/libero_policy.py"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/examples/libero/main.py",
+    "sha256": "d53748c95804ada559e3ca867305b8f755d8651c4c7f4e2723ef80aea55a3943",
+    "bytes": 9194,
+    "local": "source-snapshots/openpi/examples/libero/main.py"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/envs/env_wrapper.py",
+    "sha256": "a782fb76c9792268d28979474fe72849e1e98ada49c8e997a65359a8d6b6acd0",
+    "bytes": 8781,
+    "local": "source-snapshots/openpi/third_party/libero/libero/libero/envs/env_wrapper.py"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/assets/physical-intelligence/libero/norm_stats.json",
+    "sha256": "7e19abf21b2f8837e1e27c468f4021efe359e38a9f6158acb83b6f978dad6b5a",
+    "bytes": 1909,
+    "local": "source-snapshots/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999/assets/physical-intelligence/libero/norm_stats.json"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/assets/local/pnp_policy_spatial_center/norm_stats.json",
+    "sha256": "7c9ed137ed61140619cd0f839993711251d9fb117f064ee7a0c2f5e854f03f6a",
+    "bytes": 2012,
+    "local": "source-snapshots/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g0_accum_bs32_mb8/2499/assets/local/pnp_policy_spatial_center/norm_stats.json"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/assets/local/pnp_policy_spatial_center/norm_stats.json",
+    "sha256": "7c9ed137ed61140619cd0f839993711251d9fb117f064ee7a0c2f5e854f03f6a",
+    "bytes": 2012,
+    "local": "source-snapshots/openpi/checkpoints/pi05_libero_lora_pnp/pnp_g1_bs16/2499/assets/local/pnp_policy_spatial_center/norm_stats.json"
+  },
+  {
+    "source": "/root/autodl-tmp/scripts/eval_libero_task.py",
+    "sha256": "b580728e4c2af02d1ebb85e05c1a8e3777b4be38c5ce6443ca62f6d46e9a38fc",
+    "bytes": 6205,
+    "local": "source-snapshots/scripts/eval_libero_task.py"
+  },
+  {
+    "source": "/root/autodl-tmp/scripts/pnp_heldout_eval.py",
+    "sha256": "e8d6e54b4db6e0b38b6e8fd1be8a80a690179de6ca348220f8bcc6f513db151b",
+    "bytes": 10917,
+    "local": "source-snapshots/scripts/pnp_heldout_eval.py"
+  },
+  {
+    "source": "/root/autodl-tmp/scripts/build_pnp_heldout.py",
+    "sha256": "fcbcc631ae9532e2b893c74d6418cc9eb3e8fee77d473fce9e4ef80b26911f11",
+    "bytes": 7798,
+    "local": "source-snapshots/scripts/build_pnp_heldout.py"
+  },
+  {
+    "source": "/root/autodl-tmp/scripts/serve_pnp_heldout.py",
+    "sha256": "2046dfd9486d451e46ec375533d172234f9762603c9c3e30e048f0d76a5e3252",
+    "bytes": 1503,
+    "local": "source-snapshots/scripts/serve_pnp_heldout.py"
+  },
+  {
+    "source": "/root/autodl-tmp/scripts/freeze_pnp_heldout.py",
+    "sha256": "2eac3558c4a577bce290252d3fde034b48e18ba34869243728712257c9950c0d",
+    "bytes": 5234,
+    "local": "source-snapshots/scripts/freeze_pnp_heldout.py"
+  },
+  {
+    "source": "/root/autodl-tmp/scripts/summarize_pnp_heldout.py",
+    "sha256": "48dc78e9c97da4b357114b8114cc3ea9691dbd18ac7f16cd02cc4166dcf2cfc1",
+    "bytes": 7603,
+    "local": "source-snapshots/scripts/summarize_pnp_heldout.py"
+  },
+  {
+    "source": "/root/autodl-tmp/scripts/103-pnp-heldout-spatial.sh",
+    "sha256": "80fb9f09bb2fb81b578a6e3a1ede043a009acca9a4ec77c89c47c0ab9da81991",
+    "bytes": 4204,
+    "local": "source-snapshots/scripts/103-pnp-heldout-spatial.sh"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.pruned_init",
+    "sha256": "cbbc73792ce546c9bec181fd328a411d3183074840b282671dee481511381d0a",
+    "bytes": 44271,
+    "local": "source-snapshots/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate.pruned_init"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.pruned_init",
+    "sha256": "9b6927b6ef03460ab055141e1a1154ad85e5e290058d8ed3a8a314aff911f864",
+    "bytes": 44207,
+    "local": "source-snapshots/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate.pruned_init"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.pruned_init",
+    "sha256": "27d5b81d739f969e40c72b6c88699e57a91ea61209946b21c593aae5990689cb",
+    "bytes": 43951,
+    "local": "source-snapshots/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.pruned_init"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.pruned_init",
+    "sha256": "0627f5f5ce3ef23be546571012be8ef603d93bcb4032bc80feb34937ba580140",
+    "bytes": 44143,
+    "local": "source-snapshots/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate.pruned_init"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.pruned_init",
+    "sha256": "deef3df529e0bb57658b973bbb3baf02b02922db065c025a73ebfcd11eb54d46",
+    "bytes": 44591,
+    "local": "source-snapshots/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate.pruned_init"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.pruned_init",
+    "sha256": "2d2c50b7dcbf861fffa94d576f217ed34153e57487010d7a109a220d4d97189b",
+    "bytes": 44079,
+    "local": "source-snapshots/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate.pruned_init"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.pruned_init",
+    "sha256": "ab86fb7b5942dc0fec762eae57e72bf636106b1c10ad8ce57227723d8eb9a81b",
+    "bytes": 44335,
+    "local": "source-snapshots/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate.pruned_init"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.pruned_init",
+    "sha256": "ea9cba2814bc166f3682f3f5a97329467839bcf584069cd419191b6c17adae25",
+    "bytes": 44335,
+    "local": "source-snapshots/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate.pruned_init"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.pruned_init",
+    "sha256": "f43df2d80042130ac8770590d83f1a1e6fd4df7479aebc392aa2ed6e3bd0b83e",
+    "bytes": 44079,
+    "local": "source-snapshots/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate.pruned_init"
+  },
+  {
+    "source": "/root/autodl-tmp/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.pruned_init",
+    "sha256": "08b0ac928dcc524a66d963851a6a4eece9aeb782b38466006e403a70e3287867",
+    "bytes": 44335,
+    "local": "source-snapshots/openpi/third_party/libero/libero/libero/init_files/libero_spatial/pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate.pruned_init"
+  }
+]

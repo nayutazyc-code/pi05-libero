@@ -1,0 +1,11 @@
+{
+  "source": "/root/autodl-tmp/logs/pnp-heldout-spatial-1106104308",
+  "transport": "ssh-wrapper (configured numeric IP)",
+  "finished_utc": "2026-11-06T09:12:20.804313+00:00",
+  "files_verified": 4239,
+  "source_bytes": 9631370,
+  "archive_sha256": "4a8a28b5d768d1ae2ee061efcee9f806c567db2f74903fa1dbe31aba5f147f14",
+  "all_files_match_remote_sha256": true,
+  "remote_operations": "read-only inventory and tar; no evaluation or training",
+  "deletions": 0
+}

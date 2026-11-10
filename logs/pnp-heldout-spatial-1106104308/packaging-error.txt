@@ -1,0 +1,5 @@
+Recorded: 2026-11-06T17:09:58+08:00
+Operation: read-only remote SHA256 inventory before evidence copy
+Command prefix: ssh-wrapper "python3 -c ..."
+bash: line 1: python3: command not found
+subprocess.CalledProcessError: remote inventory command returned non-zero exit status 127.

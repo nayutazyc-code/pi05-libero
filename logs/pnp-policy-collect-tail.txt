@@ -1,0 +1,22 @@
+server ready after 5 polls pid=728037
+PNP_POLICY_COLLECT_START 2026-11-06T00:28:38+08:00
+CFG=pi05_libero_lora CKPT=/root/autodl-tmp/openpi/checkpoints/pi05_libero_lora/phase1_lora_baseline/29999 replan=5 want_success=30 dataset_ref=lerobot/libero_spatial_image
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+/root/autodl-tmp/openpi/examples/libero/.venv/lib/python3.8/site-packages/numba/np/arraymath.py:3845: DeprecationWarning: `np.MachAr` is deprecated (NumPy 1.22).
+  @overload(np.MachAr)
+INFO:root:Waiting for server at ws://127.0.0.1:8000...
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /root/autodl-tmp/openpi/third_party/libero/libero/libero/../datasets does not exist!
+[Warning]: datasets path /root/autodl-tmp/openpi/third_party/libero/libero/libero/../datasets does not exist!
+POLICY_COLLECT_START task_id=2 lang='pick up the black bowl from table center and place it on the plate' replan=5 want_success=30
+ATT 1 success=False steps=220 ok=0/30 fail=1
+ATT 2 success=True steps=98 ok=1/30 fail=1
+ATT 3 success=True steps=96 ok=2/30 fail=1
+ATT 4 success=True steps=102 ok=3/30 fail=1
+ATT 5 success=True steps=104 ok=4/30 fail=1
+ATT 6 success=True steps=112 ok=5/30 fail=1
+ATT 7 success=True steps=108 ok=6/30 fail=1
+ATT 8 success=True steps=102 ok=7/30 fail=1
+ATT 9 success=True steps=104 ok=8/30 fail=1

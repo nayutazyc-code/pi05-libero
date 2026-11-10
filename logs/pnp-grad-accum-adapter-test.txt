@@ -1,0 +1,11 @@
+ADAPTER_TEST_START 2026-11-06T09:59:47+08:00
+/root/autodl-tmp/openpi
+Python 3.11.18
+JAX_PLATFORMS=cpu PNP_MICROBATCH_SIZE=8
+0d5719fd3b0c06b977c3b25a974dc81b7e1828dd088695b444b85b76afffa551  scripts/test_pnp_grad_accum.py
+1e08f1d056ccf7481b5f675d60164372c95f591128e5f363042366dc434a85f9  scripts/pnp_grad_accum.py
+b323fae4c785f99350af12cb627095e9e618cade486f2f6b67321e29e2e7f119  scripts/train_pnp_grad_accum.py
+COMMAND: .venv/bin/python scripts/test_pnp_grad_accum.py
+PASS: micro8/16/32 = full batch; adapter clips/updates/EMA once; invalid size rejected
+ADAPTER_TEST_EXIT 0
+ADAPTER_TEST_END 2026-11-06T09:59:57+08:00
